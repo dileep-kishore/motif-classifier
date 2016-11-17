@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+</head>
+<body>
+    <table border="5" bordercolor="red" align="center">
+        <tr>
+            {% for curr_header in header %}
+                <th>{{curr_header}}</th>
+            {% endfor %}
+        </tr>
+        {% for motif in Motifs %}
+            <tr>
+                {% if motif != '-' %}
+                    <td rowspan="{{row_span[loop.index-1]}}">{{motif}}</td>
+                {% endif %}
+                {% if motif_pic[loop.index-1] != '-' %}
+                    <td rowspan="{{row_span[loop.index-1]}}"><img src="/home/dileep/Dropbox/Boston_University/Rotations/galagan_lab/{{motif_pic[loop.index-1]}}" height="200" width="200"/></td>
+                {% endif %}
+                {% if TFs[loop.index-1] != '-' %}
+                    <td>{{TFs[loop.index-1]}}</td>
+                {% else %}
+                    <td> </td>
+                {% endif %}
+                {% if e_value[loop.index-1] != '-' %}
+                    <td>{{e_value[loop.index-1]}}</td>
+                {% else %}
+                    <td> </td>
+                {% endif %}
+                {% if promoters[loop.index-1] != '-' %}
+                    <td>{{promoters[loop.index-1]}}</td>
+                {% else %}
+                    <td> </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
