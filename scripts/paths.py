@@ -6,4 +6,5 @@ def path_init():
     meme_path = "/home/dileep/meme/bin/"
     chip_path = "../data/chip/"
     genome_path = "../data/genome/"
+    out_path = "../results/"
     return None
