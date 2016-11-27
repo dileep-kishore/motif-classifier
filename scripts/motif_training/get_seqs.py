@@ -1,5 +1,7 @@
 """Script to get nucleotide sequences from chip-seq positions"""
 
+import pandas as pd
+
 def read_genome(genome_file):
     """Read genome sequence from the genome file"""
     with open(genome_file, 'r') as fid:
@@ -29,6 +31,7 @@ def write_seqs(chip_data, seqs, fastafile):
 def get_seqs(genome_file, chip_data, seq_len, fastafile):
     """Extract chip sequences from the genome"""
     genome = read_genome(genome_file)
+    chip_data = pd.read_csv(chip_data)
     positions = list(chip_data['Position'])
     sequences = extract_seqs(genome, positions, seq_len)
     write_seqs(chip_data, sequences, fastafile)

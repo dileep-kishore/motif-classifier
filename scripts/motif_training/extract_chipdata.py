@@ -22,9 +22,11 @@ def extract_chipdata(chip_file, n, outfile):
     data = read_chipdata(chip_file)
     parsed_data = parse_chipdata(data)
     sorted_data = sort_chipdata(parsed_data)
+    # Delete rows with same positions
+    sorted_data = sorted_data.groupby((sorted_data["Position"] != sorted_data["Position"].shift()).cumsum().values).first()
     if n == 'all':
-        sorted_data.to_csv(outfile)
+        sorted_data.to_csv(outfile, index=False)
         return sorted_data
     selected_data = sorted_data.head(n)
-    selected_data.to_csv(outfile)
+    selected_data.to_csv(outfile, index=False)
     return selected_data
