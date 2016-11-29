@@ -18,14 +18,20 @@ def chip_fitness(chip_fimo, chip_file):
 
 def genome_fitness(genome_fimo):
     """Calculate the fitness of the genome binding site predictions"""
-    fimo_data = pd.read_table(genom_fimo)
+    fimo_data = pd.read_table(genome_fimo)
     fitness = len(fimo_data)
     return fitness
 
 def check_fitness(chip_fimo, genome_fimo, chip_data):
     """Function to calculate fitness of a motif"""
-    a = 
-    b = 
-    chip_mat, chip_score = chip_fitness(chip_fimo, chip_data)
+    a = 0.7
+    b = 0.3
+    chip_fimo = chip_fimo + '/fimo.txt'
+    genome_fimo = genome_fimo + '/fimo.txt'
+    chip_matches, chip_score = chip_fitness(chip_fimo, chip_data)
     genome_matches = genome_fitness(genome_fimo)
-    return a*(chip_score/chip_matches) - b*(genome_matches-chip_matches)
+    norm_chip = chip_score/chip_matches
+    norm_match = (genome_matches-chip_matches)/chip_matches
+    a = 1
+    b = norm_chip
+    return a*norm_chip - b*norm_match

@@ -13,12 +13,15 @@ def run_fimo(meme_path, motif_file, sequence_file, op_folder, options):
     inputs = [motif_file, sequence_file]
     command += inputs
     shell_command = ' '.join(command)
-    print(shell_command)
+    # print(shell_command)
     call(shell_command, shell=True)
     return None
 
 def ex_fimo(meme_path, motif_file, sequence_file, op_folder, thresh=0.0001):
     options = {"--thresh": str(thresh), "--verbosity": str(1)}
     fimo_dir = '/'.join(op_folder.split('/')[:-1])
-    call('mkdir '+fimo_dir, shell=True)
+    try:
+        call('mkdir '+fimo_dir, shell=True)
+    except:
+        pass
     run_fimo(meme_path, motif_file, sequence_file, op_folder, options)
