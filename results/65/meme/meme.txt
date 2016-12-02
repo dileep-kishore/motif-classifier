@@ -73,7 +73,7 @@ COMMAND LINE SUMMARY
 This information can also be useful in the event you wish to report a
 problem with the MEME software.
 
-command: meme ../results/65/chip_fasta.fa -oc ../results/65/meme -dna -mod zoops -nostatus -revcomp -nmotifs 5 -evt 0.001 
+command: meme ../results/65/chip_fasta.fa -oc ../results/65/meme -dna -mod zoops -nostatus -revcomp -evt 0.001 -nmotifs 5 
 
 model:  mod=         zoops    nmotifs=         5    evt=         0.001
 object function=  E-value of product of p-values
@@ -398,7 +398,7 @@ letter-probability matrix: alength= 4 w= 20 nsites= 64 E= 3.5e-041
 
 
 
-Time 18.43 secs.
+Time 18.88 secs.
 
 ********************************************************************************
 
@@ -587,7 +587,7 @@ G[CT]A[AC][AT]TTT[AG]AT[CT][CG]ATT[AT]TG[CT]AG[AT]TGAT[AT][AG]A[AG][GT][AC][AT][
 
 
 
-Time 33.07 secs.
+Time 37.33 secs.
 
 ********************************************************************************
 
@@ -772,7 +772,7 @@ TTG[AC][AG][GT]CCA[CG][AT][CG][AT][GT]G[AG][CG]T[CT][CG]A[GT][AG][GT]C[AC]G[AC]T
 
 
 
-Time 47.15 secs.
+Time 57.26 secs.
 
 ********************************************************************************
 
@@ -957,7 +957,7 @@ G[GT][CG][AT]ATC[AG]G[GT]G[CT][GT]T[GT][CT]A[CT][CG]C[AG][AG][GT][AT][GT][AT]GTG
 
 
 
-Time 61.13 secs.
+Time 76.37 secs.
 
 ********************************************************************************
 

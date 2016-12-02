@@ -195,7 +195,7 @@
 </letter_frequencies>
 </training_set>
 <model>
-<command_line>meme ../results/5/chip_fasta.fa -oc ../results/5/meme -dna -mod zoops -nostatus -revcomp -nmotifs 5 -evt 0.001 </command_line>
+<command_line>meme ../results/5/chip_fasta.fa -oc ../results/5/meme -dna -mod zoops -nostatus -revcomp -evt 0.001 -nmotifs 5 </command_line>
 <host>dileep-i3</host>
 <type>zoops</type>
 <nmotifs>5</nmotifs>

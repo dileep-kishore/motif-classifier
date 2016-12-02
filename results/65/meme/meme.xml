@@ -255,7 +255,7 @@
 </letter_frequencies>
 </training_set>
 <model>
-<command_line>meme ../results/65/chip_fasta.fa -oc ../results/65/meme -dna -mod zoops -nostatus -revcomp -nmotifs 5 -evt 0.001 </command_line>
+<command_line>meme ../results/65/chip_fasta.fa -oc ../results/65/meme -dna -mod zoops -nostatus -revcomp -evt 0.001 -nmotifs 5 </command_line>
 <host>dileep-i3</host>
 <type>zoops</type>
 <nmotifs>5</nmotifs>
@@ -295,7 +295,7 @@
 </background_frequencies>
 </model>
 <motifs>
-<motif id="motif_1" name="1" width="20" sites="64" ic="14.9" re="13.3" llr="588" e_value="3.5e-041" bayes_threshold="8.25446" elapsed_time="18.433332">
+<motif id="motif_1" name="1" width="20" sites="64" ic="14.9" re="13.3" llr="588" e_value="3.5e-041" bayes_threshold="8.25446" elapsed_time="18.876665">
 <scores>
 <alphabet_matrix>
 <alphabet_array>
@@ -2214,7 +2214,7 @@
 </contributing_site>
 </contributing_sites>
 </motif>
-<motif id="motif_2" name="2" width="50" sites="4" ic="77.0" re="74.5" llr="206" e_value="2.4e-007" bayes_threshold="11.2602" elapsed_time="33.073330">
+<motif id="motif_2" name="2" width="50" sites="4" ic="77.0" re="74.5" llr="206" e_value="2.4e-007" bayes_threshold="11.2602" elapsed_time="37.326663">
 <scores>
 <alphabet_matrix>
 <alphabet_array>
@@ -3053,7 +3053,7 @@ G[CT]A[AC][AT]TTT[AG]AT[CT][CG]ATT[AT]TG[CT]AG[AT]TGAT[AT][AG]A[AG][GT][AC][AT][
 </contributing_site>
 </contributing_sites>
 </motif>
-<motif id="motif_3" name="3" width="48" sites="4" ic="72.0" re="73.8" llr="204" e_value="1.0e-007" bayes_threshold="8.55345" elapsed_time="47.153329">
+<motif id="motif_3" name="3" width="48" sites="4" ic="72.0" re="73.8" llr="204" e_value="1.0e-007" bayes_threshold="8.55345" elapsed_time="57.256661">
 <scores>
 <alphabet_matrix>
 <alphabet_array>
@@ -3860,7 +3860,7 @@ TTG[AC][AG][GT]CCA[CG][AT][CG][AT][GT]G[AG][CG]T[CT][CG]A[GT][AG][GT]C[AC]G[AC]T
 </contributing_site>
 </contributing_sites>
 </motif>
-<motif id="motif_4" name="4" width="48" sites="4" ic="70.0" re="70.1" llr="194" e_value="1.4e-004" bayes_threshold="7.54961" elapsed_time="61.133327">
+<motif id="motif_4" name="4" width="48" sites="4" ic="70.0" re="70.1" llr="194" e_value="1.4e-004" bayes_threshold="7.54961" elapsed_time="76.366659">
 <scores>
 <alphabet_matrix>
 <alphabet_array>

@@ -7,7 +7,9 @@ from motif_training.get_seqs import get_seqs
 from motif_training.ex_meme import ex_meme
 from motif_training.ex_fimo import ex_fimo
 from motif_training.check_fitness import check_fitness
+from motif_training.motif_identifier import motif_identifier
 import paths
+import matplotlib.pyplot as plt
 
 def clean_up():
     results_dir = '../results/'
@@ -26,17 +28,18 @@ def main(TF, n, seq_len, out_dir):
     # Meme execution (n chip binding sites)
     meme_op_folder = out_dir + 'meme'
     ex_meme(paths.meme_path, chip_fastafile, meme_op_folder)
+    motif_id = motif_identifier(TF, meme_op_folder)
     # Fimo execution (whole genome)
     motif_file = meme_op_folder + '/meme.txt'
     fimo_op_folder1 = out_dir + 'fimo/genome'
-    ex_fimo(paths.meme_path, motif_file, genome_file, fimo_op_folder1)
+    ex_fimo(paths.meme_path, motif_file, genome_file, fimo_op_folder1, motif_id)
     # Fimo execution (all chip sites)
     chip_outfile_all = out_dir + 'chip_out_all.csv'
     extract_chipdata(chip_file, 'all', chip_outfile_all)
     chip_fastafile_all = out_dir + 'chip_fasta_all.fa'
     get_seqs(genome_file, chip_outfile_all, seq_len, chip_fastafile_all)
     fimo_op_folder2 = out_dir + 'fimo/chip'
-    ex_fimo(paths.meme_path, motif_file, chip_fastafile_all, fimo_op_folder2)
+    ex_fimo(paths.meme_path, motif_file, chip_fastafile_all, fimo_op_folder2, motif_id)
     # Check fitness
     if len(os.listdir(out_dir+'fimo/')) == 0:
         return None
@@ -61,3 +64,5 @@ if __name__ == '__main__':
             print('n={0:d}, fitness={1:.3f}'.format(n, fitness[ind]))
         except TypeError:
             print('n={0:d}, fitness=None'.format(n))
+    plt.plot(n_range, fitness)
+    plt.show()

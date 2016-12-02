@@ -13,7 +13,7 @@ def run_meme(meme_path, fastafile, options, op_folder):
     others2 = list(chain(*zip(options.keys(), options.values())))
     command += others2
     shell_command = ' '.join(command)
-    # print(shell_command)
+    print(shell_command)
     call(shell_command, shell=True)
     return None
 

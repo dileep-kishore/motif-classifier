@@ -4,7 +4,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation=  xmlns:fimo="http://noble.gs.washington.edu/schema/fimo"
 >
-<command-line>/home/dileep/meme/bin/./fimo --verbosity 1 --thresh 0.0001 --oc ../results/25/fimo/chip ../results/25/meme/meme.txt ../results/25/chip_fasta_all.fa</command-line>
+<command-line>/home/dileep/meme/bin/./fimo --verbosity 1 --thresh 0.0001 --motif 1 --oc ../results/25/fimo/chip ../results/25/meme/meme.txt ../results/25/chip_fasta_all.fa</command-line>
 <settings>
 <setting name="output directory">../results/25/fimo/chip</setting>
 <setting name="MEME file name">../results/25/meme/meme.txt</setting>
@@ -19,6 +19,7 @@
 <setting name="max stored scores">100000</setting>
 <setting name="pseudocount">0.1</setting>
 <setting name="verbosity">1</setting>
+<setting name="selected motif">1</setting>
 </settings>
 <sequence-data num-sequences="500" num-residues="100000" />
 <alphabet name="DNA" like="dna">

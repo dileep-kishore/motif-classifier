@@ -4,7 +4,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation=  xmlns:fimo="http://noble.gs.washington.edu/schema/fimo"
 >
-<command-line>/home/dileep/meme/bin/./fimo --verbosity 1 --thresh 0.0001 --oc ../results/65/fimo/genome ../results/65/meme/meme.txt ../data/genome/U00096.2.fa</command-line>
+<command-line>/home/dileep/meme/bin/./fimo --verbosity 1 --thresh 0.0001 --motif 1 --oc ../results/65/fimo/genome ../results/65/meme/meme.txt ../data/genome/U00096.2.fa</command-line>
 <settings>
 <setting name="output directory">../results/65/fimo/genome</setting>
 <setting name="MEME file name">../results/65/meme/meme.txt</setting>
@@ -19,8 +19,9 @@
 <setting name="max stored scores">100000</setting>
 <setting name="pseudocount">0.1</setting>
 <setting name="verbosity">1</setting>
+<setting name="selected motif">1</setting>
 </settings>
-<sequence-data num-sequences="1" num-residues="4639675" />
+<sequence-data num-sequences="0" num-residues="0" />
 <alphabet name="DNA" like="dna">
 <letter id="A" symbol="A" complement="T" name="Adenine" colour="CC0000"/>
 <letter id="C" symbol="C" complement="G" name="Cytosine" colour="0000CC"/>

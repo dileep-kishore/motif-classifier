@@ -235,7 +235,7 @@
 </letter_frequencies>
 </training_set>
 <model>
-<command_line>meme ../results/45/chip_fasta.fa -oc ../results/45/meme -dna -mod zoops -nostatus -revcomp -nmotifs 5 -evt 0.001 </command_line>
+<command_line>meme ../results/45/chip_fasta.fa -oc ../results/45/meme -dna -mod zoops -nostatus -revcomp -evt 0.001 -nmotifs 5 </command_line>
 <host>dileep-i3</host>
 <type>zoops</type>
 <nmotifs>5</nmotifs>
@@ -275,7 +275,7 @@
 </background_frequencies>
 </model>
 <motifs>
-<motif id="motif_1" name="1" width="21" sites="42" ic="16.1" re="14.6" llr="425" e_value="4.3e-027" bayes_threshold="8.57393" elapsed_time="9.606666">
+<motif id="motif_1" name="1" width="21" sites="42" ic="16.1" re="14.6" llr="425" e_value="4.3e-027" bayes_threshold="8.57393" elapsed_time="9.140000">
 <scores>
 <alphabet_matrix>
 <alphabet_array>
@@ -1676,7 +1676,7 @@
 </contributing_site>
 </contributing_sites>
 </motif>
-<motif id="motif_2" name="2" width="49" sites="4" ic="73.0" re="71.0" llr="197" e_value="2.7e-005" bayes_threshold="7.53036" elapsed_time="17.533331">
+<motif id="motif_2" name="2" width="49" sites="4" ic="73.0" re="71.0" llr="197" e_value="2.7e-005" bayes_threshold="7.53036" elapsed_time="16.359999">
 <scores>
 <alphabet_matrix>
 <alphabet_array>
