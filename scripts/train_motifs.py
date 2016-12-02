@@ -12,7 +12,7 @@ import paths
 import matplotlib.pyplot as plt
 
 def clean_up():
-    results_dir = '../results/'
+    results_dir = '../results/motif_training/'
     command = 'rm -rf ' + results_dir
     call(command, shell=True)
     return None
@@ -56,7 +56,7 @@ if __name__ == '__main__':
     n_range = range(5, 100, 20)
     fitness = [0.0 for _ in n_range]
     for ind, n in enumerate(n_range):
-        out_dir = paths.out_path + str(n) + '/'
+        out_dir = paths.out_path + 'motif_training/' + str(n) + '/'
         if not os.path.exists(out_dir):
             call('mkdir -p ' + out_dir, shell=True)
         fitness[ind] = main(tf, n, seq_len, out_dir)
