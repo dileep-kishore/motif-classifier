@@ -1,5 +1,5 @@
-track type=wiggle_0 name="Roll [Degree]" description="DNA Shape - Roll [Degree]"
-variableStep chrom=chr span=1
+#track type=wiggle_0 name="Roll [Degree]" description="DNA Shape - Roll [Degree]"
+#variableStep chrom=chr span=1
 2	-4.35
 3	-3.6
 4	-5.77

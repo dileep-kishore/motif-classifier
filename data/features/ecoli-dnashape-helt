@@ -1,5 +1,5 @@
-track type=wiggle_0 name="HelT [Degree]" description="DNA Shape - Helix Twist [Degree]"
-variableStep chrom=chr span=1
+#track type=wiggle_0 name="HelT [Degree]" description="DNA Shape - Helix Twist [Degree]"
+#variableStep chrom=chr span=1
 2	38.05
 3	32.48
 4	36.87

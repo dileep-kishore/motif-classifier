@@ -1,5 +1,5 @@
-track type=wiggle_0 name="ORChID2" description="OH Radical Cleavage Intensity Database (ROChID2)"
-variableStep chrom=chr span=1
+#track type=wiggle_0 name="ORChID2" description="OH Radical Cleavage Intensity Database (ROChID2)"
+#variableStep chrom=chr span=1
 1	-0.308
 2	0.737
 3	0.596667
