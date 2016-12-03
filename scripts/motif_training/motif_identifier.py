@@ -1,7 +1,6 @@
 """Script to id which motif in the motif file is the actual motif"""
 
 from Bio import motifs
-import sys
 
 def motif_identifier(tf, meme_folder):
     meme_file = meme_folder + '/meme.txt'
@@ -22,7 +21,3 @@ def motif_identifier(tf, meme_folder):
     sorted_list = sorted(motif_list, key=lambda x: x[1])
     motif_name = sorted_list[0][0]
     return motif_name[-1]
-
-if __name__ == '__main__':
-    op_folder = sys.argv[1]
-    print(motif_identifier(op_folder))

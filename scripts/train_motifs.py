@@ -8,6 +8,7 @@ from motif_training.ex_meme import ex_meme
 from motif_training.ex_fimo import ex_fimo
 from motif_training.check_fitness import check_fitness
 from motif_training.motif_identifier import motif_identifier
+from motif_training.make_dataset import make_dataset
 import paths
 import matplotlib.pyplot as plt
 
@@ -55,8 +56,9 @@ if __name__ == '__main__':
         clean_up()
     n_range = range(5, 100, 20)
     fitness = [0.0 for _ in n_range]
+    motif_out_dir = path.out_path + 'motif_training/'
     for ind, n in enumerate(n_range):
-        out_dir = paths.out_path + 'motif_training/' + str(n) + '/'
+        out_dir = motif_out_dir + str(n) + '/'
         if not os.path.exists(out_dir):
             call('mkdir -p ' + out_dir, shell=True)
         fitness[ind] = main(tf, n, seq_len, out_dir)
@@ -66,3 +68,5 @@ if __name__ == '__main__':
             print('n={0:d}, fitness=None'.format(n))
     plt.plot(n_range, fitness)
     plt.show()
+    best_n = n[fitness.index(max(fitness))]
+    make_dataset(best_n, motif_out_dir)
