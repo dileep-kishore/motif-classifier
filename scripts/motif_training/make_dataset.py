@@ -52,6 +52,3 @@ def make_dataset(n, results_dir):
     motif_range = get_chipseq_ranges(chip_fimo, chip_all, motif_file)
     labels = label_genome_data(genome_fimo, motif_range)
     make_dataframe(results_dir, genome_fimo, labels)
-
-if __name__ == '__main__':
-    make_dataset(85, '../results/motif_training/')
