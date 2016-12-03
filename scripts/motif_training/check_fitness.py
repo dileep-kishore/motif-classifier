@@ -24,7 +24,7 @@ def genome_fitness(genome_fimo):
 
 def check_fitness(chip_fimo, genome_fimo, chip_data):
     """Function to calculate fitness of a motif"""
-    #TODO: Figure out what to do about multiple motifs
+    #NOTE: These parameters need to be optimized
     a = 0.7
     b = 0.3
     chip_fimo = chip_fimo + '/fimo.txt'

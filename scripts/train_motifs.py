@@ -12,8 +12,8 @@ from motif_training.make_dataset import make_dataset
 import paths
 import matplotlib.pyplot as plt
 
-def clean_up():
-    results_dir = '../results/motif_training/'
+def clean_up(out_path):
+    results_dir = out_path + 'motif_training/'
     command = 'rm -rf ' + results_dir
     call(command, shell=True)
     return None
@@ -53,7 +53,7 @@ if __name__ == '__main__':
     seq_len = 200
     ans = input('Do you want to clean the results directory? (Y/N)\n')
     if ans == 'Y':
-        clean_up()
+        clean_up(paths.out_path)
     n_range = range(5, 100, 20)
     fitness = [0.0 for _ in n_range]
     motif_out_dir = path.out_path + 'motif_training/'

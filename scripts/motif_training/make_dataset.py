@@ -37,6 +37,8 @@ def make_dataframe(results_dir, genome_fimo, labels):
     mot_stop = list(genome_fimo_data["stop"])
     d = {'start': mot_start, 'stop': mot_stop, 'label': labels}
     label_df = pd.DataFrame(data=d, index=None)
+    cols = ['start', 'stop', 'label']
+    label_df = label_df[cols]
     out_file = results_dir + 'labelled_data.csv'
     label_df.to_csv(out_file, index=False)
 
