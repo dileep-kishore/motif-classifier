@@ -8,6 +8,14 @@ Created on Fri Dec  2 18:07:30 2016
 motif. Lm is the location of the left end of the motif. Rm is the right end of our
 motif. DNA is the genomic DNA sequence. W is how far to the left and right of the motif
 we want to explore.'''
+
+def read_genome(genome_file):
+    """Read genome sequence from the genome file"""
+    with open(genome_file, 'r') as fid:
+        seq = [line.strip() for line in fid.readlines()]
+        sequence = ''.join(seq[1:])
+    return sequence
+
 def Base_Comp(Lm,Rm, DNA, W):
     #Frequency Dictionary
     Aleft=0
