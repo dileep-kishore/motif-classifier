@@ -15,7 +15,6 @@ def read_genome(genome_file):
         seq = [line.strip() for line in fid.readlines()]
         sequence = ''.join(seq[1:])
     return sequence
-
 def Base_Comp(Lm,Rm, DNA, W):
     #Frequency Dictionary
     Aleft=0
@@ -48,6 +47,8 @@ def Base_Comp(Lm,Rm, DNA, W):
         elif Rflank[i]=="C":
             Cright+=1/W
     return Aleft, Tleft, Gleft, Cleft, Aright, Tright, Gright, Cright
+
+MyGenome=read_genome('U00096.2.fa.txt')
 # How we can implement this function into a table/list of vectors?
 # FreqMat=np.zeros((Nmotifs+1, 4))
 # given a dataframe of start and end points of each motif, PandaMot, where each column represents
