@@ -51,9 +51,10 @@ def Base_Comp(Lm,Rm, DNA, W):
 MyGenome=read_genome('U00096.2.fa.txt')
 # How we can implement this function into a table/list of vectors?
 # FreqMat=np.zeros((Nmotifs+1, 4))
-# given a dataframe of start and end points of each motif, PandaMot, where each column represents
+# given a dataframe of start and end points of each motif, PandaMot, 
+#Also Given dataframe where each column represents
 # frequencies of A, T, G, and C respectively.
-#Also Given dataframe
+
 # for i in range(0, Number Motifs):
 #   FreqMat[i,0], FreqMat[i,1], FreqMat[i,2], FreqMat[i,3], etc= Base_Comp(PandaMot[i,0], PandaMot[i,1], DNA, W)
 # Alternatively, if you want to use a list of lists, 
