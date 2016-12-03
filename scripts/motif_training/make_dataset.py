@@ -22,10 +22,10 @@ def label_genome_data(genome_fimo, motif_range):
     mot_stop = list(genome_fimo_data["stop"])
     label = ['' for _ in range(len(mot_stop))]
     for i in range(len(mot_start)):
-        if any(start <= mot_start[i] <= upper for (start, upper) in motif_range):
+        if any(start <= mot_start[i] <= stop for (start, stop) in motif_range):
             label[i] = 'true'
             continue
-        if any(start <= mot_stop[i] <= upper for (start, upper) in motif_range):
+        if any(start <= mot_stop[i] <= stop for (start, stop) in motif_range):
             label[i] = 'true'
             continue
         label[i] = 'false'
