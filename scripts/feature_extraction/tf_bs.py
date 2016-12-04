@@ -60,9 +60,10 @@ def get_distance_to_other_tfs(the_data, a_series):
     return pd.Series(res.tolist(), index=['tfs_D_fw', 'tfs_D_rv', 'tfs_U_fw', 'tfs_U_fw'])
 
     
-def get_df_distances_to_other_tfs(positions_df):
+def get_df_distances_to_other_tfs(labelled_data, feature_path):
     # FIX THIS! It should be read from the package
-    features_data_path = "../../data/features/"
+    features_data_path = feature_path
+    positions_df = pd.read_csv(labelled_data)
     
     # The name of the file with the RegulonDB data of TFs and their binding site
     regulondb_tfbs_filename = features_data_path + "regulondb-tfbs.txt"
@@ -83,5 +84,5 @@ def get_df_distances_to_other_tfs(positions_df):
     res = positions_df.apply(distances_getter, axis=1)
     return res
 
-df = pd.DataFrame({'x' : [5, 32, 50, 64], 'y' : [13, 40, 58, 72]})
-temp = get_df_distances_to_other_tfs(df)
+# df = pd.DataFrame({'x' : [5, 32, 50, 64], 'y' : [13, 40, 58, 72]})
+# temp = get_df_distances_to_other_tfs(df)

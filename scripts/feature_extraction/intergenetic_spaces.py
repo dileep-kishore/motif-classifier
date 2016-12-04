@@ -16,7 +16,6 @@ def check_intergenetic(gap_range, labelled_data):
     motif_start = list(motif_sites['start'])
     motif_stop = list(motif_sites['stop'])
     intergenetic = [2 for _ in range(len(motif_start))]
-    print(gap_range[:20])
     for i in range(len(motif_stop)):
         if any(start <= motif_start[i] <= stop for (start, stop) in gap_range):
             intergenetic[i] = 1

@@ -24,10 +24,11 @@ def get_DNA_topology_value(the_data, index_template, a_series):
     return pd.Series(res.tolist(), index=labels)
 
 # This is the MAIN EXTRACTOR function
-def get_df_topologies_of_bindingsites(positions_df):
+def get_df_topologies_of_bindingsites(labelled_data, feature_path):
     
     # FIX THIS! It should be read from the package paths
-    features_data_path = "../../data/features/"
+    features_data_path = feature_path
+    positions_df = pd.read_csv(labelled_data)
     
     # Filenames of the databases with DNA topology data
     mgw_db_filename = "ecoli-dnashape-mgw.db"

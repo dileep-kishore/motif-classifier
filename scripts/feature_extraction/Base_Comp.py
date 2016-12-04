@@ -66,11 +66,13 @@ def adaptor(DNA, W, a_series):
     return res_series
     
     
-def get_df_base_composition(positions_df):
+def get_df_base_composition(labelled_data, genome_path):
     # FIX THIS! It should be read from the package paths
-    genome_data_path = "../../data/genome/"
+    genome_data_path = genome_path
     # Filenames of the databases with DNA topology data
     genome_filename = "U00096.2.fa"
+
+    positions_df = pd.read_csv(labelled_data)
 
     window_size = 25      
     genome_sequence = read_genome(genome_data_path+genome_filename)
@@ -80,9 +82,9 @@ def get_df_base_composition(positions_df):
     res = positions_df.apply(base_comp_adpated_partial, axis=1)
     return res
         
-df = pd.DataFrame({'x' : [50, 320, 500, 640], 'y' : [130, 400, 580, 720]})
-temp = get_df_base_composition(df)
-print(temp)
+# df = pd.DataFrame({'x' : [50, 320, 500, 640], 'y' : [130, 400, 580, 720]})
+# temp = get_df_base_composition(df)
+# print(temp)
 
 # How we can implement this function into a table/list of vectors?
 # FreqMat=np.zeros((Nmotifs+1, 4))
