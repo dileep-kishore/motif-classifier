@@ -2,15 +2,16 @@
 """Script to extract features for classification"""
 
 from subprocess import call
+import os
 import paths
+import pandas as pd
 from feature_extraction import intergenetic_spaces
 from feature_extraction.Base_Comp import get_df_base_composition
 from feature_extraction.tf_bs import get_df_distances_to_other_tfs
 from feature_extraction.dna_topology import get_df_topologies_of_bindingsites
 
 def clean_up(out_path):
-    results_dir = out_path + 'feature_extraction/'
-    command = 'rm -rf ' + results_dir
+    command = 'rm -rf ' + out_path
     call(command, shell=True)
     return None
 
@@ -25,16 +26,18 @@ def main(feature_data_dir, out_dir, labelled_data):
     # Topologies of binding sites
     tf_topologies = get_df_topologies_of_bindingsites(labelled_data, feature_data_dir)
     # Joining all the data_frames
-    final_dataframe = intergene_data.join(base_comp, tf_dist, tf_topologies)
+    final_dataframe = pd.concat([intergene_data, base_comp, tf_dist, tf_topologies], axis=1)
     op_file = out_dir + 'final_dataframe.csv'
-    final_dataframe.to_csv(op_file)
-    return final_dataframe
+    final_dataframe.to_csv(op_file, index=False)
+    return intergene_data, base_comp, tf_topologies
 
 if __name__ == '__main__':
     ans = input('Do you want to clean the results directory? (Y/N)\n')
-    if ans == 'Y':
-        clean_up(paths.out_path)
-    feature_data_dir = paths.features_data_path
     out_dir = paths.out_path + 'feature_extraction/'
+    if ans == 'Y':
+        clean_up(out_dir)
+    feature_data_dir = paths.features_data_path
+    if not os.path.exists(out_dir):
+        call('mkdir -p ' + out_dir, shell=True)
     labelled_data = paths.labelled_data
-    main(feature_data_dir, out_dir, labelled_data)
+    a, b, c = main(feature_data_dir, out_dir, labelled_data)
