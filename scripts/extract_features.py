@@ -4,13 +4,14 @@
 from subprocess import call
 import os
 import paths
+import pandas as pd
 from feature_extraction import intergenetic_spaces
 from feature_extraction.Base_Comp import get_df_base_composition
 from feature_extraction.tf_bs import get_df_distances_to_other_tfs
 from feature_extraction.dna_topology import get_df_topologies_of_bindingsites
 
 def clean_up(out_path):
-    command = 'rm -rf ' + results_dir
+    command = 'rm -rf ' + out_path
     call(command, shell=True)
     return None
 
@@ -21,7 +22,7 @@ def main(feature_data_dir, out_dir, labelled_data):
     # Base composition feature extraction
     base_comp = get_df_base_composition(labelled_data, paths.genome_path)
     # Distance to other features
-    # tf_dist = get_df_distances_to_other_tfs(labelled_data, feature_data_dir)
+    tf_dist = get_df_distances_to_other_tfs(labelled_data, feature_data_dir)
     # Topologies of binding sites
     tf_topologies = get_df_topologies_of_bindingsites(labelled_data, feature_data_dir)
     # Joining all the data_frames
