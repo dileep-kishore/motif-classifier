@@ -16,6 +16,10 @@ def load_from_topology_db(complete_path_to_file):
     return data_df
 
 def get_DNA_topology_value(the_data, index_template, a_series):
+    try:
+        xrange
+    except:
+        xrange = range
     start = a_series[0]
     end = a_series[1]
     data_filtered = the_data[ (the_data['to'] >= start) & (the_data['to'] <= end)]
