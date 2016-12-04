@@ -46,7 +46,7 @@ def get_distance_to_other_tfs(the_data, a_series):
     assert len(tfs_downstream_position_rv) > 0, "DANGER: No downstream-reverse other-TFs binding site!"
     assert len(tfs_upstream_position_fw) > 0, "DANGER: No upstream-forward other-TFs binding site!"
     assert len(tfs_upstream_position_rv) > 0, "DANGER: No upstream-reverse other-TFs binding site!"
-    
+
     the_list = [tfs_downstream_position_fw, tfs_downstream_position_rv, tfs_upstream_position_fw, tfs_upstream_position_rv]
     new_list = []
     for df in the_list:
