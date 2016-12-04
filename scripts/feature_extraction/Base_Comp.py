@@ -18,7 +18,6 @@ def read_genome(genome_file):
         seq = [line.strip() for line in fid.readlines()]
         sequence = ''.join(seq[1:])
     return sequence
-
 def Base_Comp(Lm,Rm, DNA, W):
     
     assert (Lm - W) > 0, "DANGER: Base composition is trying to acces a negative position in the genome"
@@ -57,7 +56,7 @@ def Base_Comp(Lm,Rm, DNA, W):
     res = [Aleft, Tleft, Gleft, Cleft, Aright, Tright, Gright, Cright]
     return res
     
-    
+
 def adaptor(DNA, W, a_series):
     Lm = a_series[0]
     Rm = a_series[1]
@@ -84,12 +83,13 @@ def get_df_base_composition(positions_df):
 df = pd.DataFrame({'x' : [50, 320, 500, 640], 'y' : [130, 400, 580, 720]})
 temp = get_df_base_composition(df)
 print(temp)
-    
+
 # How we can implement this function into a table/list of vectors?
 # FreqMat=np.zeros((Nmotifs+1, 4))
-# given a dataframe of start and end points of each motif, PandaMot, where each column represents
+# given a dataframe of start and end points of each motif, PandaMot, 
+#Also Given dataframe where each column represents
 # frequencies of A, T, G, and C respectively.
-#Also Given dataframe
+
 # for i in range(0, Number Motifs):
 #   FreqMat[i,0], FreqMat[i,1], FreqMat[i,2], FreqMat[i,3], etc= Base_Comp(PandaMot[i,0], PandaMot[i,1], DNA, W)
 # Alternatively, if you want to use a list of lists, 
