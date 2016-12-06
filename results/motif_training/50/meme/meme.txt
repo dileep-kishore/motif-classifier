@@ -1,0 +1,817 @@
+********************************************************************************
+MEME - Motif discovery tool
+********************************************************************************
+MEME version 4.11.2 (Release date: Thu Jun 16 15:11:49 2016 -0700)
+
+For further information on how to interpret these results or to get
+a copy of the MEME software please access http://meme-suite.org .
+
+This file may be used as input to the MAST algorithm for searching
+sequence databases for matches to groups of motifs.  MAST is available
+for interactive use and downloading at http://meme-suite.org .
+********************************************************************************
+
+
+********************************************************************************
+REFERENCE
+********************************************************************************
+If you use this program in your research, please cite:
+
+Timothy L. Bailey and Charles Elkan,
+"Fitting a mixture model by expectation maximization to discover
+motifs in biopolymers", Proceedings of the Second International
+Conference on Intelligent Systems for Molecular Biology, pp. 28-36,
+AAAI Press, Menlo Park, California, 1994.
+********************************************************************************
+
+
+********************************************************************************
+TRAINING SET
+********************************************************************************
+DATAFILE= ../results/motif_training/50/chip_fasta.fa
+ALPHABET= ACGT
+Sequence name            Weight Length  Sequence name            Weight Length  
+-------------            ------ ------  -------------            ------ ------  
+abgA                     1.0000    200  yjbQ                     1.0000    200  
+cynT                     1.0000    200  asnC                     1.0000    200  
+gadE                     1.0000    200  dppA                     1.0000    200  
+sdhC                     1.0000    200  feaR                     1.0000    200  
+mntH                     1.0000    200  yobF                     1.0000    200  
+yaiY                     1.0000    200  gltP                     1.0000    200  
+nanA                     1.0000    200  wcaF                     1.0000    200  
+csiD                     1.0000    200  sdiA                     1.0000    200  
+thrS                     1.0000    200  ybdK                     1.0000    200  
+gltB                     1.0000    200  gcvT                     1.0000    200  
+yobA                     1.0000    200  kbl                      1.0000    200  
+wcaE                     1.0000    200  ydcS                     1.0000    200  
+nac                      1.0000    200  spf                      1.0000    200  
+glnD                     1.0000    200  serA                     1.0000    200  
+yjbB                     1.0000    200  yifB                     1.0000    200  
+groS                     1.0000    200  yicJ                     1.0000    200  
+yjeH                     1.0000    200  yihO                     1.0000    200  
+ftnB                     1.0000    200  ybjQ                     1.0000    200  
+ycgJ                     1.0000    200  ygiL                     1.0000    200  
+wzc                      1.0000    200  ydeP                     1.0000    200  
+ybhI                     1.0000    200  pntA                     1.0000    200  
+yhcC                     1.0000    200  yafD                     1.0000    200  
+ynfB                     1.0000    200  gltF                     1.0000    200  
+ilvL                     1.0000    200  hupA                     1.0000    200  
+dnaA                     1.0000    200  yjaH                     1.0000    200  
+********************************************************************************
+
+********************************************************************************
+COMMAND LINE SUMMARY
+********************************************************************************
+This information can also be useful in the event you wish to report a
+problem with the MEME software.
+
+command: meme ../results/motif_training/50/chip_fasta.fa -oc ../results/motif_training/50/meme -dna -mod zoops -nostatus -revcomp -evt 0.001 -nmotifs 5 
+
+model:  mod=         zoops    nmotifs=         5    evt=         0.001
+object function=  E-value of product of p-values
+width:  minw=            8    maxw=           50
+width:  wg=             11    ws=              1    endgaps=       yes
+nsites: minsites=        2    maxsites=       50    wnsites=       0.8
+theta:  spmap=         uni    spfuzz=        0.5
+global: substring=     yes    branching=      no    wbranch=        no
+em:     prior=   dirichlet    b=            0.01    maxiter=        50
+        distance=    1e-05
+data:   n=           10000    N=              50    shuffle=        -1
+strands: + -
+sample: seed=            0    ctfrac=         -1    maxwords=       -1
+Letter frequencies in dataset:
+A 0.298 C 0.202 G 0.202 T 0.298 
+Background letter frequencies (from dataset with add-one prior applied):
+A 0.298 C 0.202 G 0.202 T 0.298 
+********************************************************************************
+
+
+********************************************************************************
+MOTIF  1 MEME	width =  21  sites =  50  llr = 479  E-value = 3.2e-031
+********************************************************************************
+--------------------------------------------------------------------------------
+	Motif 1 Description
+--------------------------------------------------------------------------------
+Simplified        A  213a:64142311::29:421
+pos.-specific     C  :36::2132:12271:1:112
+probability       G  411:1:342:::2111::432
+matrix            T  34::922237675288:9144
+
+         bits    2.3                      
+                 2.1                      
+                 1.8    *                 
+                 1.6    *                 
+Relative         1.4    **           **   
+Entropy          1.2    **           **   
+(13.8 bits)      0.9    **    *   ** **   
+                 0.7   ***    * * *****   
+                 0.5   ****   *** *****   
+                 0.2 ******** ************
+                 0.0 ---------------------
+
+Multilevel           GTCATAAGATTTTCTTATGTT
+consensus            TCA  TGCTAACCT    AGC
+sequence             A    CTT           AG
+                                          
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 1 sites sorted by position p-value
+--------------------------------------------------------------------------------
+Sequence name            Strand  Start   P-value                    Site       
+-------------            ------  ----- ---------            ---------------------
+sdiA                         +    100  4.68e-09 ACTTTTGCAA GCCATCGCATTCTCTTATGTT ATTAATGAGT
+asnC                         +     82  4.68e-09 CAGATAATTT TCCATAGGATTTTCTTATGCG GATTGATGAT
+ybdK                         +     89  5.87e-09 ATCGGGTAAT GGCATAGGTTTCTCTTATGTT GGCGTTTTCT
+cynT                         -    100  5.27e-08 TATGATGAGT TCCATTGGATTTACTTATAGG TTGCGAATGC
+wcaF                         +     97  8.86e-08 GCTTAAATCT TGCATTGGTTTTCCTTATATT CAGACTTTGT
+wcaE                         -    153  1.99e-07 GGTTGGTGTG GTAATCGCGTTTCCTTATATT TCCACCCGTC
+spf                          -    100  6.41e-07 TTTCAGTTGT TGCATAGGAATTTCTAATAGC CATCACAAAA
+csiD                         -     83  7.35e-07 GCACAAAAGC GACATATTGTTTTCTTATTGT GATCAAAAGC
+yaiY                         +     44  1.25e-06 ACCTCCGGAA GTCATCTGCTTCTCTTCTGGT GTGATACCAG
+gcvT                         +     98  1.41e-06 GGTAAAATTG ATCATCACATTAGCTTATGGT TAAAAAATGC
+yjeH                         +     86  1.60e-06 CGATGGTAGC ACAATCAGATTCGCTTATGAC GGCGATGAAG
+groS                         +     86  1.60e-06 CGATGGTAGC ACAATCAGATTCGCTTATGAC GGCGATGAAG
+dppA                         -    137  1.82e-06 TGTGACAGAA ACCATTGTCTTTTTTTATATT TGCTTAAATC
+yjaH                         -     79  3.70e-06 TTGAGTCTTG TTCATAAGTTATCCTTACAAT GTGTTTATCG
+hupA                         -     79  3.70e-06 TTGAGTCTTG TTCATAAGTTATCCTTACAAT GTGTTTATCG
+wzc                          -     85  5.78e-06 ATGGAAAAGC GCCATATCGAACGCTTATGCG AGATGGCACC
+yhcC                         +     78  6.43e-06 CATAATCACA TAAATCACTTTTGCTTATCTT GTGTCAGATT
+gltB                         +     78  6.43e-06 CATAATCACA TAAATCACTTTTGCTTATCTT GTGTCAGATT
+thrS                         +    107  7.95e-06 AGTTATAACA GGCATTTTATATCCTTATTTG CAGTGGTGAC
+ybhI                         -     80  8.82e-06 AGAATTAGCT TCCATAACGATTTCTTATTCA TTTAAAATCC
+glnD                         -     97  8.82e-06 CTTTTTTAAT GCGATAATTTAATCTTATGGG TGGCGCACAA
+gadE                         -     94  8.82e-06 TGTGAAAAAC ATAATTGTGAATTCTTATGGG GCAAGTGTTT
+pntA                         +     96  9.78e-06 GATATTCCCT TCCATCGGTTTTATTGATGAT GGTTTGCCTG
+dnaA                         -     81  1.32e-05 TTTGTCTATG GTCATTAAATTTTCCAATATG CGGCGTAAAT
+ftnB                         +    100  1.46e-05 CTTATACCCG TTCAGACGTTATTCTTATTTC AGATCATCGT
+yihO                         +     81  1.61e-05 ATTATGGTCA GACATAATCACTCCTTATAAC GCCCCGCAGG
+serA                         -     82  1.61e-05 TCATATTGCC GCAATATTATTTTTTGATATG TTGAAAGGCG
+abgA                         +    132  1.61e-05 GGTTCACGTA GCGATAGTTTTTACTTATCAC TAACTGATTT
+yafD                         -     67  2.13e-05 CTTTCAACGA GCAATTGTATATTGTTATGTA AGCAAGTGCT
+ydcS                         +     80  2.13e-05 CTTAGATTGG GTAATATGAATTTCGAATAGC AGTCATATTT
+ybjQ                         -    107  2.34e-05 GTAGAACGCT TTCAGAGCGATCGCTTATAAG GAAATCATTA
+yobA                         +    102  2.56e-05 TTTTTTACAG AGCATAACCTTGTCTAATGTC TGAGTCGAGG
+ilvL                         -     98  2.80e-05 CTAAAGAGTT ACCATAGGTTTTGTAAATAGT ACAAGATATT
+ynfB                         +     79  2.80e-05 GTCTCTTATT GACATCATGTATAGTTATAGG GCGACATAAT
+yjbQ                         -     47  3.06e-05 TTATCCTGCA GCCATTGCGATTTTGTATTTT GCCCTGGTTT
+kbl                          -    128  3.35e-05 ATGCTTTGGC ATCATTTTTTCTTTTTATATC AATGCAGTAA
+gltP                         -     51  3.65e-05 GCAGGATTAA TGAATAACCATTTGTTATGGA AAGATTTTTA
+feaR                         -     52  3.65e-05 TATAGTCAGG CTCATTAGCTTCGTTTATTGC AACACAAATG
+ycgJ                         -     56  4.72e-05 ACGCATCATA TTCATAGCACATCCTGATAAT CCAACCGTAC
+mntH                         -     99  4.72e-05 ATAGTGATCT GTCATACATTTCTGCTATGTT GTGTATGGAA
+yjbB                         +     78  5.12e-05 TGTCTCTTTA TTAATATGAAACACTTATACT GGAAACAGGC
+gltF                         -     96  5.56e-05 CTACGAGAGT ATCATAAGCTTTTTCAATATA GGATGTGTCG
+yifB                         -     99  5.56e-05 AAGAAGGGGG ACGATATGATTTACCTATCGC CATTGCGTTG
+sdhC                         +     72  6.04e-05 TCCACACTGT TACATAAGTTAATCTTAGGTG AAATACCGAC
+nanA                         -     77  7.08e-05 AGCAGATCGC ATTATAAGCTTTCTGTATGGG GTGTTGCTTA
+ydeP                         -     71  1.04e-04 GTGCATCATC GCTATTACAAATCCTAATAAT TCATTTCCAC
+yobF                         -     96  1.21e-04 CACGCACTAT GTAATAACTTCTCCCACTGGC CTGGAACAAC
+nac                          -     86  1.97e-04 AGGCTTTGCT GAAAGAAGATCTTTTTCTGGT AGGAACTCAA
+ygiL                         -     99  2.57e-04 TTCAATTGTA CTCATTCATTTTTGTGATGGT TTTCTGAATG
+yicJ                         -     76  3.30e-04 AGCATTATAG TTCATATAAAACCCATATTTT ACAATGATAT
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 1 block diagrams
+--------------------------------------------------------------------------------
+SEQUENCE NAME            POSITION P-VALUE  MOTIF DIAGRAM
+-------------            ----------------  -------------
+sdiA                              4.7e-09  99_[+1]_80
+asnC                              4.7e-09  81_[+1]_98
+ybdK                              5.9e-09  88_[+1]_91
+cynT                              5.3e-08  99_[-1]_80
+wcaF                              8.9e-08  96_[+1]_83
+wcaE                                2e-07  152_[-1]_27
+spf                               6.4e-07  99_[-1]_80
+csiD                              7.3e-07  82_[-1]_97
+yaiY                              1.2e-06  43_[+1]_136
+gcvT                              1.4e-06  97_[+1]_82
+yjeH                              1.6e-06  85_[+1]_94
+groS                              1.6e-06  85_[+1]_94
+dppA                              1.8e-06  136_[-1]_43
+yjaH                              3.7e-06  78_[-1]_101
+hupA                              3.7e-06  78_[-1]_101
+wzc                               5.8e-06  84_[-1]_95
+yhcC                              6.4e-06  77_[+1]_102
+gltB                              6.4e-06  77_[+1]_102
+thrS                                8e-06  106_[+1]_73
+ybhI                              8.8e-06  79_[-1]_100
+glnD                              8.8e-06  96_[-1]_83
+gadE                              8.8e-06  93_[-1]_86
+pntA                              9.8e-06  95_[+1]_84
+dnaA                              1.3e-05  80_[-1]_99
+ftnB                              1.5e-05  99_[+1]_80
+yihO                              1.6e-05  80_[+1]_99
+serA                              1.6e-05  81_[-1]_98
+abgA                              1.6e-05  131_[+1]_48
+yafD                              2.1e-05  66_[-1]_113
+ydcS                              2.1e-05  79_[+1]_100
+ybjQ                              2.3e-05  106_[-1]_73
+yobA                              2.6e-05  101_[+1]_78
+ilvL                              2.8e-05  97_[-1]_82
+ynfB                              2.8e-05  78_[+1]_101
+yjbQ                              3.1e-05  46_[-1]_133
+kbl                               3.3e-05  127_[-1]_52
+gltP                              3.7e-05  50_[-1]_129
+feaR                              3.7e-05  51_[-1]_128
+ycgJ                              4.7e-05  55_[-1]_124
+mntH                              4.7e-05  98_[-1]_81
+yjbB                              5.1e-05  77_[+1]_102
+gltF                              5.6e-05  95_[-1]_84
+yifB                              5.6e-05  98_[-1]_81
+sdhC                                6e-05  71_[+1]_108
+nanA                              7.1e-05  76_[-1]_103
+ydeP                               0.0001  70_[-1]_109
+yobF                              0.00012  95_[-1]_84
+nac                                0.0002  85_[-1]_94
+ygiL                              0.00026  98_[-1]_81
+yicJ                              0.00033  75_[-1]_104
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 1 in BLOCKS format
+--------------------------------------------------------------------------------
+BL   MOTIF 1 width=21 seqs=50
+sdiA                     (  100) GCCATCGCATTCTCTTATGTT  1 
+asnC                     (   82) TCCATAGGATTTTCTTATGCG  1 
+ybdK                     (   89) GGCATAGGTTTCTCTTATGTT  1 
+cynT                     (  100) TCCATTGGATTTACTTATAGG  1 
+wcaF                     (   97) TGCATTGGTTTTCCTTATATT  1 
+wcaE                     (  153) GTAATCGCGTTTCCTTATATT  1 
+spf                      (  100) TGCATAGGAATTTCTAATAGC  1 
+csiD                     (   83) GACATATTGTTTTCTTATTGT  1 
+yaiY                     (   44) GTCATCTGCTTCTCTTCTGGT  1 
+gcvT                     (   98) ATCATCACATTAGCTTATGGT  1 
+yjeH                     (   86) ACAATCAGATTCGCTTATGAC  1 
+groS                     (   86) ACAATCAGATTCGCTTATGAC  1 
+dppA                     (  137) ACCATTGTCTTTTTTTATATT  1 
+yjaH                     (   79) TTCATAAGTTATCCTTACAAT  1 
+hupA                     (   79) TTCATAAGTTATCCTTACAAT  1 
+wzc                      (   85) GCCATATCGAACGCTTATGCG  1 
+yhcC                     (   78) TAAATCACTTTTGCTTATCTT  1 
+gltB                     (   78) TAAATCACTTTTGCTTATCTT  1 
+thrS                     (  107) GGCATTTTATATCCTTATTTG  1 
+ybhI                     (   80) TCCATAACGATTTCTTATTCA  1 
+glnD                     (   97) GCGATAATTTAATCTTATGGG  1 
+gadE                     (   94) ATAATTGTGAATTCTTATGGG  1 
+pntA                     (   96) TCCATCGGTTTTATTGATGAT  1 
+dnaA                     (   81) GTCATTAAATTTTCCAATATG  1 
+ftnB                     (  100) TTCAGACGTTATTCTTATTTC  1 
+yihO                     (   81) GACATAATCACTCCTTATAAC  1 
+serA                     (   82) GCAATATTATTTTTTGATATG  1 
+abgA                     (  132) GCGATAGTTTTTACTTATCAC  1 
+yafD                     (   67) GCAATTGTATATTGTTATGTA  1 
+ydcS                     (   80) GTAATATGAATTTCGAATAGC  1 
+ybjQ                     (  107) TTCAGAGCGATCGCTTATAAG  1 
+yobA                     (  102) AGCATAACCTTGTCTAATGTC  1 
+ilvL                     (   98) ACCATAGGTTTTGTAAATAGT  1 
+ynfB                     (   79) GACATCATGTATAGTTATAGG  1 
+yjbQ                     (   47) GCCATTGCGATTTTGTATTTT  1 
+kbl                      (  128) ATCATTTTTTCTTTTTATATC  1 
+gltP                     (   51) TGAATAACCATTTGTTATGGA  1 
+feaR                     (   52) CTCATTAGCTTCGTTTATTGC  1 
+ycgJ                     (   56) TTCATAGCACATCCTGATAAT  1 
+mntH                     (   99) GTCATACATTTCTGCTATGTT  1 
+yjbB                     (   78) TTAATATGAAACACTTATACT  1 
+gltF                     (   96) ATCATAAGCTTTTTCAATATA  1 
+yifB                     (   99) ACGATATGATTTACCTATCGC  1 
+sdhC                     (   72) TACATAAGTTAATCTTAGGTG  1 
+nanA                     (   77) ATTATAAGCTTTCTGTATGGG  1 
+ydeP                     (   71) GCTATTACAAATCCTAATAAT  1 
+yobF                     (   96) GTAATAACTTCTCCCACTGGC  1 
+nac                      (   86) GAAAGAAGATCTTTTTCTGGT  1 
+ygiL                     (   99) CTCATTCATTTTTGTGATGGT  1 
+yicJ                     (   76) TTCATATAAAACCCATATTTT  1 
+//
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 1 position-specific scoring matrix
+--------------------------------------------------------------------------------
+log-odds matrix: alength= 4 w= 21 n= 9000 bayes= 7.97619 E= 3.2e-031 
+   -44   -234     98     19 
+  -109     75    -75     43 
+   -19    166   -175   -289 
+   175  -1229  -1229  -1229 
+ -1229  -1229   -175    166 
+    91     -2  -1229    -31 
+    50   -175     66    -57 
+  -189     47    105    -44 
+    27    -34    -34     10 
+   -31   -334  -1229    131 
+    -9   -134  -1229    110 
+  -231     12   -334    123 
+  -131     12    -17     69 
+ -1229    179   -102    -57 
+  -289   -102   -175    143 
+   -90  -1229   -134    135 
+   166   -175  -1229  -1229 
+ -1229   -234   -334    166 
+    35   -134     98   -109 
+   -57   -134     75     35 
+  -189     25     25     56 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 1 position-specific probability matrix
+--------------------------------------------------------------------------------
+letter-probability matrix: alength= 4 w= 21 nsites= 50 E= 3.2e-031 
+ 0.220000  0.040000  0.400000  0.340000 
+ 0.140000  0.340000  0.120000  0.400000 
+ 0.260000  0.640000  0.060000  0.040000 
+ 1.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.060000  0.940000 
+ 0.560000  0.200000  0.000000  0.240000 
+ 0.420000  0.060000  0.320000  0.200000 
+ 0.080000  0.280000  0.420000  0.220000 
+ 0.360000  0.160000  0.160000  0.320000 
+ 0.240000  0.020000  0.000000  0.740000 
+ 0.280000  0.080000  0.000000  0.640000 
+ 0.060000  0.220000  0.020000  0.700000 
+ 0.120000  0.220000  0.180000  0.480000 
+ 0.000000  0.700000  0.100000  0.200000 
+ 0.040000  0.100000  0.060000  0.800000 
+ 0.160000  0.000000  0.080000  0.760000 
+ 0.940000  0.060000  0.000000  0.000000 
+ 0.000000  0.040000  0.020000  0.940000 
+ 0.380000  0.080000  0.400000  0.140000 
+ 0.200000  0.080000  0.340000  0.380000 
+ 0.080000  0.240000  0.240000  0.440000 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 1 regular expression
+--------------------------------------------------------------------------------
+[GTA][TC][CA]AT[ATC][AGT][GCT][AT][TA][TA][TC][TC][CT]TTAT[GA][TGA][TCG]
+--------------------------------------------------------------------------------
+
+
+
+
+Time 12.20 secs.
+
+********************************************************************************
+
+
+********************************************************************************
+MOTIF  2 MEME	width =  49  sites =   6  llr = 227  E-value = 1.4e-007
+********************************************************************************
+--------------------------------------------------------------------------------
+	Motif 2 Description
+--------------------------------------------------------------------------------
+Simplified        A  :a8aa:::5:22588a:23::3::2732::533::::3:22:a8:25:3
+pos.-specific     C  a::::377:::3:22:57325:523:73:8353:525:73:8:22::a:
+probability       G  ::2:::235a53::::32:5522:53:3:22:3:2:55:28::::::::
+matrix            T  :::::72:::325:::2:33:538:::2a::2:a38:233:2::885:7
+
+         bits    2.3 *        *                                     * 
+                 2.1 *        *                                     * 
+                 1.8 ** **    *     *            *    *        *    * 
+                 1.6 ** **    *     *            **   *      ***    * 
+Relative         1.4 ** **  * *     *    *       **   *  *   ***    * 
+Entropy          1.2 *****  * *   ***    *  *  * **   * ** * ****** * 
+(54.6 bits)      0.9 **********   *** *  *  * ** **   * ** * ****** **
+                 0.7 **********  ****** ** ***** **   **** * *********
+                 0.5 *********** *************** *********** *********
+                 0.2 *************************************** *********
+                 0.0 -------------------------------------------------
+
+Multilevel           CAAAATCCAGGCAAAACCAGCTCTGACCTCACATCTCGCCGCAATTACT
+consensus                 C GG TGT   G CTGAT CGAG  CAC T GATT      T A
+sequence                               T             G                
+                                                                      
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 2 sites sorted by position p-value
+--------------------------------------------------------------------------------
+Sequence name            Strand  Start   P-value                                  Site                     
+-------------            ------  ----- ---------            -------------------------------------------------
+yjaH                         +    145  1.53e-22 CAGAACTGTC CAAAACCCAGGCTAAAGCTGCTCTGGAGTCCACTCTGGCTGCAATTACT GAGTCTC   
+hupA                         +    145  1.53e-22 CAGAACTGTC CAAAACCCAGGCTAAAGCTGCTCTGGAGTCCACTCTGGCTGCAATTACT GAGTCTC   
+yjeH                         -    115  4.11e-20 CTGATCAGCA CAAAATCGGGTGAAAACCCTGATTCACCTCACATTTCATCGCAATTTCT TCATCGCCGT
+groS                         -    115  4.11e-20 CTGATCAGCA CAAAATCGGGTGAAAACCCTGATTCACCTCACATTTCATCGCAATTTCT TCATCGCCGT
+yjbQ                         -    111  3.78e-15 TGGAGGCGCG CAGAATGCGGATACCACGAGCGCCGACATCGCGTGCGGCGGTAATATCA TTATCAGAAT
+kbl                          +     20  1.08e-14 AACACTTCTG CAAAATTCAGGATAAATAACGTGTAACTTGATGTCTCTCAACACCTACA GATAGTAGAA
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 2 block diagrams
+--------------------------------------------------------------------------------
+SEQUENCE NAME            POSITION P-VALUE  MOTIF DIAGRAM
+-------------            ----------------  -------------
+yjaH                              1.5e-22  144_[+2]_7
+hupA                              1.5e-22  144_[+2]_7
+yjeH                              4.1e-20  114_[-2]_37
+groS                              4.1e-20  114_[-2]_37
+yjbQ                              3.8e-15  110_[-2]_41
+kbl                               1.1e-14  19_[+2]_132
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 2 in BLOCKS format
+--------------------------------------------------------------------------------
+BL   MOTIF 2 width=49 seqs=6
+yjaH                     (  145) CAAAACCCAGGCTAAAGCTGCTCTGGAGTCCACTCTGGCTGCAATTACT  1 
+hupA                     (  145) CAAAACCCAGGCTAAAGCTGCTCTGGAGTCCACTCTGGCTGCAATTACT  1 
+yjeH                     (  115) CAAAATCGGGTGAAAACCCTGATTCACCTCACATTTCATCGCAATTTCT  1 
+groS                     (  115) CAAAATCGGGTGAAAACCCTGATTCACCTCACATTTCATCGCAATTTCT  1 
+yjbQ                     (  111) CAGAATGCGGATACCACGAGCGCCGACATCGCGTGCGGCGGTAATATCA  1 
+kbl                      (   20) CAAAATTCAGGATAAATAACGTGTAACTTGATGTCTCTCAACACCTACA  1 
+//
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 2 position-specific scoring matrix
+--------------------------------------------------------------------------------
+log-odds matrix: alength= 4 w= 49 n= 7600 bayes= 9.08177 E= 1.4e-007 
+  -923    230   -923   -923 
+   175   -923   -923   -923 
+   148   -923    -28   -923 
+   175   -923   -923   -923 
+   175   -923   -923   -923 
+  -923     72   -923    116 
+  -923    172    -28    -83 
+  -923    172     72   -923 
+    75   -923    130   -923 
+  -923   -923    230   -923 
+   -83   -923    130     16 
+   -83     72     72    -83 
+    75   -923   -923     75 
+   148    -28   -923   -923 
+   148    -28   -923   -923 
+   175   -923   -923   -923 
+  -923    130     72    -83 
+   -83    172    -28   -923 
+    16     72   -923     16 
+  -923    -28    130     16 
+  -923    130    130   -923 
+    16   -923    -28     75 
+  -923    130    -28     16 
+  -923    -28   -923    148 
+   -83     72    130   -923 
+   116   -923     72   -923 
+    16    172   -923   -923 
+   -83     72     72    -83 
+  -923   -923   -923    175 
+  -923    204    -28   -923 
+    75     72    -28   -923 
+    16    130   -923    -83 
+    16     72     72   -923 
+  -923   -923   -923    175 
+  -923    130    -28     16 
+  -923    -28   -923    148 
+  -923    130    130   -923 
+    16   -923    130    -83 
+  -923    172   -923     16 
+   -83     72    -28     16 
+   -83   -923    204   -923 
+  -923    204   -923    -83 
+   175   -923   -923   -923 
+   148    -28   -923   -923 
+  -923    -28   -923    148 
+   -83   -923   -923    148 
+    75   -923   -923     75 
+  -923    230   -923   -923 
+    16   -923   -923    116 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 2 position-specific probability matrix
+--------------------------------------------------------------------------------
+letter-probability matrix: alength= 4 w= 49 nsites= 6 E= 1.4e-007 
+ 0.000000  1.000000  0.000000  0.000000 
+ 1.000000  0.000000  0.000000  0.000000 
+ 0.833333  0.000000  0.166667  0.000000 
+ 1.000000  0.000000  0.000000  0.000000 
+ 1.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.333333  0.000000  0.666667 
+ 0.000000  0.666667  0.166667  0.166667 
+ 0.000000  0.666667  0.333333  0.000000 
+ 0.500000  0.000000  0.500000  0.000000 
+ 0.000000  0.000000  1.000000  0.000000 
+ 0.166667  0.000000  0.500000  0.333333 
+ 0.166667  0.333333  0.333333  0.166667 
+ 0.500000  0.000000  0.000000  0.500000 
+ 0.833333  0.166667  0.000000  0.000000 
+ 0.833333  0.166667  0.000000  0.000000 
+ 1.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.500000  0.333333  0.166667 
+ 0.166667  0.666667  0.166667  0.000000 
+ 0.333333  0.333333  0.000000  0.333333 
+ 0.000000  0.166667  0.500000  0.333333 
+ 0.000000  0.500000  0.500000  0.000000 
+ 0.333333  0.000000  0.166667  0.500000 
+ 0.000000  0.500000  0.166667  0.333333 
+ 0.000000  0.166667  0.000000  0.833333 
+ 0.166667  0.333333  0.500000  0.000000 
+ 0.666667  0.000000  0.333333  0.000000 
+ 0.333333  0.666667  0.000000  0.000000 
+ 0.166667  0.333333  0.333333  0.166667 
+ 0.000000  0.000000  0.000000  1.000000 
+ 0.000000  0.833333  0.166667  0.000000 
+ 0.500000  0.333333  0.166667  0.000000 
+ 0.333333  0.500000  0.000000  0.166667 
+ 0.333333  0.333333  0.333333  0.000000 
+ 0.000000  0.000000  0.000000  1.000000 
+ 0.000000  0.500000  0.166667  0.333333 
+ 0.000000  0.166667  0.000000  0.833333 
+ 0.000000  0.500000  0.500000  0.000000 
+ 0.333333  0.000000  0.500000  0.166667 
+ 0.000000  0.666667  0.000000  0.333333 
+ 0.166667  0.333333  0.166667  0.333333 
+ 0.166667  0.000000  0.833333  0.000000 
+ 0.000000  0.833333  0.000000  0.166667 
+ 1.000000  0.000000  0.000000  0.000000 
+ 0.833333  0.166667  0.000000  0.000000 
+ 0.000000  0.166667  0.000000  0.833333 
+ 0.166667  0.000000  0.000000  0.833333 
+ 0.500000  0.000000  0.000000  0.500000 
+ 0.000000  1.000000  0.000000  0.000000 
+ 0.333333  0.000000  0.000000  0.666667 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 2 regular expression
+--------------------------------------------------------------------------------
+CAAAA[TC]C[CG][AG]G[GT][CG][AT]AAA[CG]C[ACT][GT][CG][TA][CT]T[GC][AG][CA][CG]TC[AC][CA][ACG]T[CT]T[CG][GA][CT][CT]GCAATT[AT]C[TA]
+--------------------------------------------------------------------------------
+
+
+
+
+Time 22.57 secs.
+
+********************************************************************************
+
+
+********************************************************************************
+MOTIF  3 MEME	width =  49  sites =   4  llr = 203  E-value = 4.6e-007
+********************************************************************************
+--------------------------------------------------------------------------------
+	Motif 3 Description
+--------------------------------------------------------------------------------
+Simplified        A  a:::::::5:::5::55::5:5::5555:::::::a5::::::5:55::
+pos.-specific     C  ::5::::5::::55:5:::5:555:5::::5:::a::5:5a::5:5:5:
+probability       G  ::5aa:555:a:::a::5a:a:5:5::::::5aa:::::5:a::a::::
+matrix            T  :a:::a5::a:a:5::55:::::5::55aa55::::55a:::a:::55a
+
+         bits    2.3    **     *   *   * *           ***     **  *    
+                 2.1    **     *   *   * *           ***     **  *    
+                 1.8 ** ***   ***  *   * *       **  ****  * *** *   *
+                 1.6 ** ***   ***  *   * *       **  ****  * *** *   *
+Relative         1.4 ****** * ***  *   * * *     **  ****  ***** *   *
+Entropy          1.2 ****** * ***  *   * * *     **  ****  ***** *   *
+(73.3 bits)      0.9 **************** *********  ******** ********* **
+                 0.7 *************************************************
+                 0.5 *************************************************
+                 0.2 *************************************************
+                 0.0 -------------------------------------------------
+
+Multilevel           ATCGGTGCATGTACGAAGGAGACCAAAATTCGGGCAACTCCGTAGAACT
+consensus              G   TGG   CT CTT C CGTGCTT  TT    TT G   C CTT 
+sequence                                                              
+                                                                      
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 3 sites sorted by position p-value
+--------------------------------------------------------------------------------
+Sequence name            Strand  Start   P-value                                  Site                     
+-------------            ------  ----- ---------            -------------------------------------------------
+yjaH                         +      6  1.13e-23      TGGCT ATCGGTGCGTGTATGCAGGAGAGTGCTATTCTGGCATTTCCGTCGCACT CGATGCTTAG
+hupA                         +      6  1.13e-23      TGGCT ATCGGTGCGTGTATGCAGGAGAGTGCTATTCTGGCATTTCCGTCGCACT CGATGCTTAG
+yjeH                         +     26  6.57e-23 GAGTCCACTC ATGGGTTGATGTCCGATTGCGCCCAAATTTTGGGCAACTGCGTAGATTT TCGATGGTAG
+groS                         +     26  6.57e-23 GAGTCCACTC ATGGGTTGATGTCCGATTGCGCCCAAATTTTGGGCAACTGCGTAGATTT TCGATGGTAG
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 3 block diagrams
+--------------------------------------------------------------------------------
+SEQUENCE NAME            POSITION P-VALUE  MOTIF DIAGRAM
+-------------            ----------------  -------------
+yjaH                              1.1e-23  5_[+3]_146
+hupA                              1.1e-23  5_[+3]_146
+yjeH                              6.6e-23  25_[+3]_126
+groS                              6.6e-23  25_[+3]_126
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 3 in BLOCKS format
+--------------------------------------------------------------------------------
+BL   MOTIF 3 width=49 seqs=4
+yjaH                     (    6) ATCGGTGCGTGTATGCAGGAGAGTGCTATTCTGGCATTTCCGTCGCACT  1 
+hupA                     (    6) ATCGGTGCGTGTATGCAGGAGAGTGCTATTCTGGCATTTCCGTCGCACT  1 
+yjeH                     (   26) ATGGGTTGATGTCCGATTGCGCCCAAATTTTGGGCAACTGCGTAGATTT  1 
+groS                     (   26) ATGGGTTGATGTCCGATTGCGCCCAAATTTTGGGCAACTGCGTAGATTT  1 
+//
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 3 position-specific scoring matrix
+--------------------------------------------------------------------------------
+log-odds matrix: alength= 4 w= 49 n= 7600 bayes= 7.53352 E= 4.6e-007 
+   175   -865   -865   -865 
+  -865   -865   -865    175 
+  -865    130    130   -865 
+  -865   -865    230   -865 
+  -865   -865    230   -865 
+  -865   -865   -865    175 
+  -865   -865    130     75 
+  -865    130    130   -865 
+    75   -865    130   -865 
+  -865   -865   -865    175 
+  -865   -865    230   -865 
+  -865   -865   -865    175 
+    75    130   -865   -865 
+  -865    130   -865     75 
+  -865   -865    230   -865 
+    75    130   -865   -865 
+    75   -865   -865     75 
+  -865   -865    130     75 
+  -865   -865    230   -865 
+    75    130   -865   -865 
+  -865   -865    230   -865 
+    75    130   -865   -865 
+  -865    130    130   -865 
+  -865    130   -865     75 
+    75   -865    130   -865 
+    75    130   -865   -865 
+    75   -865   -865     75 
+    75   -865   -865     75 
+  -865   -865   -865    175 
+  -865   -865   -865    175 
+  -865    130   -865     75 
+  -865   -865    130     75 
+  -865   -865    230   -865 
+  -865   -865    230   -865 
+  -865    230   -865   -865 
+   175   -865   -865   -865 
+    75   -865   -865     75 
+  -865    130   -865     75 
+  -865   -865   -865    175 
+  -865    130    130   -865 
+  -865    230   -865   -865 
+  -865   -865    230   -865 
+  -865   -865   -865    175 
+    75    130   -865   -865 
+  -865   -865    230   -865 
+    75    130   -865   -865 
+    75   -865   -865     75 
+  -865    130   -865     75 
+  -865   -865   -865    175 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 3 position-specific probability matrix
+--------------------------------------------------------------------------------
+letter-probability matrix: alength= 4 w= 49 nsites= 4 E= 4.6e-007 
+ 1.000000  0.000000  0.000000  0.000000 
+ 0.000000  0.000000  0.000000  1.000000 
+ 0.000000  0.500000  0.500000  0.000000 
+ 0.000000  0.000000  1.000000  0.000000 
+ 0.000000  0.000000  1.000000  0.000000 
+ 0.000000  0.000000  0.000000  1.000000 
+ 0.000000  0.000000  0.500000  0.500000 
+ 0.000000  0.500000  0.500000  0.000000 
+ 0.500000  0.000000  0.500000  0.000000 
+ 0.000000  0.000000  0.000000  1.000000 
+ 0.000000  0.000000  1.000000  0.000000 
+ 0.000000  0.000000  0.000000  1.000000 
+ 0.500000  0.500000  0.000000  0.000000 
+ 0.000000  0.500000  0.000000  0.500000 
+ 0.000000  0.000000  1.000000  0.000000 
+ 0.500000  0.500000  0.000000  0.000000 
+ 0.500000  0.000000  0.000000  0.500000 
+ 0.000000  0.000000  0.500000  0.500000 
+ 0.000000  0.000000  1.000000  0.000000 
+ 0.500000  0.500000  0.000000  0.000000 
+ 0.000000  0.000000  1.000000  0.000000 
+ 0.500000  0.500000  0.000000  0.000000 
+ 0.000000  0.500000  0.500000  0.000000 
+ 0.000000  0.500000  0.000000  0.500000 
+ 0.500000  0.000000  0.500000  0.000000 
+ 0.500000  0.500000  0.000000  0.000000 
+ 0.500000  0.000000  0.000000  0.500000 
+ 0.500000  0.000000  0.000000  0.500000 
+ 0.000000  0.000000  0.000000  1.000000 
+ 0.000000  0.000000  0.000000  1.000000 
+ 0.000000  0.500000  0.000000  0.500000 
+ 0.000000  0.000000  0.500000  0.500000 
+ 0.000000  0.000000  1.000000  0.000000 
+ 0.000000  0.000000  1.000000  0.000000 
+ 0.000000  1.000000  0.000000  0.000000 
+ 1.000000  0.000000  0.000000  0.000000 
+ 0.500000  0.000000  0.000000  0.500000 
+ 0.000000  0.500000  0.000000  0.500000 
+ 0.000000  0.000000  0.000000  1.000000 
+ 0.000000  0.500000  0.500000  0.000000 
+ 0.000000  1.000000  0.000000  0.000000 
+ 0.000000  0.000000  1.000000  0.000000 
+ 0.000000  0.000000  0.000000  1.000000 
+ 0.500000  0.500000  0.000000  0.000000 
+ 0.000000  0.000000  1.000000  0.000000 
+ 0.500000  0.500000  0.000000  0.000000 
+ 0.500000  0.000000  0.000000  0.500000 
+ 0.000000  0.500000  0.000000  0.500000 
+ 0.000000  0.000000  0.000000  1.000000 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 3 regular expression
+--------------------------------------------------------------------------------
+AT[CG]GGT[GT][CG][AG]TGT[AC][CT]G[AC][AT][GT]G[AC]G[AC][CG][CT][AG][AC][AT][AT]TT[CT][GT]GGCA[AT][CT]T[CG]CGT[AC]G[AC][AT][CT]T
+--------------------------------------------------------------------------------
+
+
+
+
+Time 32.69 secs.
+
+********************************************************************************
+
+
+********************************************************************************
+SUMMARY OF MOTIFS
+********************************************************************************
+
+--------------------------------------------------------------------------------
+	Combined block diagrams: non-overlapping sites with p-value < 0.0001
+--------------------------------------------------------------------------------
+SEQUENCE NAME            COMBINED P-VALUE  MOTIF DIAGRAM
+-------------            ----------------  -------------
+abgA                             2.13e-02  131_[+1(1.61e-05)]_48
+yjbQ                             7.19e-13  46_[-1(3.06e-05)]_11_[-1(4.72e-05)]_\
+    11_[-2(3.78e-15)]_41
+cynT                             2.68e-04  99_[-1(5.27e-08)]_80
+asnC                             3.28e-05  81_[+1(4.68e-09)]_98
+gadE                             3.00e-02  93_[-1(8.82e-06)]_86
+dppA                             4.97e-04  136_[-1(1.82e-06)]_43
+sdhC                             1.99e-01  71_[+1(6.04e-05)]_108
+feaR                             6.73e-02  51_[-1(3.65e-05)]_128
+mntH                             9.59e-02  98_[-1(4.72e-05)]_81
+yobF                             3.47e-01  200
+yaiY                             7.04e-03  43_[+1(1.25e-06)]_136
+gltP                             1.31e-01  50_[-1(3.65e-05)]_129
+nanA                             4.81e-02  76_[-1(7.08e-05)]_103
+wcaF                             1.20e-04  96_[+1(8.86e-08)]_83
+csiD                             3.76e-03  82_[-1(7.35e-07)]_97
+sdiA                             5.17e-05  99_[+1(4.68e-09)]_80
+thrS                             2.92e-02  84_[-1(9.65e-05)]_1_[+1(7.95e-06)]_\
+    73
+ybdK                             2.37e-06  88_[+1(5.87e-09)]_91
+gltB                             7.48e-03  77_[+1(6.43e-06)]_102
+gcvT                             7.34e-04  97_[+1(1.41e-06)]_82
+yobA                             2.87e-02  101_[+1(2.56e-05)]_78
+kbl                              1.61e-11  19_[+2(1.08e-14)]_59_[-1(3.35e-05)]_\
+    52
+wcaE                             8.08e-04  96_[-1(2.56e-05)]_35_[-1(1.99e-07)]_\
+    27
+ydcS                             6.23e-02  15_[-1(8.28e-05)]_43_[+1(2.13e-05)]_\
+    100
+nac                              9.78e-02  200
+spf                              3.23e-03  99_[-1(6.41e-07)]_80
+glnD                             1.86e-02  96_[-1(8.82e-06)]_83
+serA                             2.28e-02  81_[-1(1.61e-05)]_98
+yjbB                             4.53e-03  77_[+1(5.12e-05)]_102
+yifB                             2.33e-02  98_[-1(5.56e-05)]_81
+groS                             6.19e-37  25_[+3(6.57e-23)]_11_[+1(1.60e-06)]_\
+    8_[-2(4.11e-20)]_37
+yicJ                             9.18e-02  200
+yjeH                             6.19e-37  25_[+3(6.57e-23)]_11_[+1(1.60e-06)]_\
+    8_[-2(4.11e-20)]_37
+yihO                             6.55e-02  80_[+1(1.61e-05)]_99
+ftnB                             5.47e-02  99_[+1(1.46e-05)]_80
+ybjQ                             5.78e-02  106_[-1(2.34e-05)]_73
+ycgJ                             1.10e-01  55_[-1(4.72e-05)]_124
+ygiL                             1.62e-01  200
+wzc                              5.11e-03  84_[-1(5.78e-06)]_95
+ydeP                             1.63e-01  200
+ybhI                             4.56e-02  79_[-1(8.82e-06)]_100
+pntA                             1.21e-02  95_[+1(9.78e-06)]_84
+yhcC                             7.48e-03  77_[+1(6.43e-06)]_102
+yafD                             3.80e-02  66_[-1(2.13e-05)]_113
+ynfB                             3.16e-02  78_[+1(2.80e-05)]_101
+gltF                             2.19e-01  95_[-1(5.56e-05)]_84
+ilvL                             3.22e-02  97_[-1(2.80e-05)]_82
+hupA                             1.05e-39  5_[+3(1.13e-23)]_24_[-1(3.70e-06)]_\
+    45_[+2(1.53e-22)]_7
+dnaA                             1.20e-02  80_[-1(1.32e-05)]_99
+yjaH                             1.05e-39  5_[+3(1.13e-23)]_24_[-1(3.70e-06)]_\
+    45_[+2(1.53e-22)]_7
+--------------------------------------------------------------------------------
+
+********************************************************************************
+
+
+********************************************************************************
+Stopped because motif E-value > 1.00e-03.
+********************************************************************************
+
+CPU: dileep-i3
+
+********************************************************************************

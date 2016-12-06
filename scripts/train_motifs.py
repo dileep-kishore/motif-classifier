@@ -1,3 +1,11 @@
+# @Author: Dileep Kishore <dileep>
+# @Date:   2016-12-04T12:13:51-05:00
+# @Filename: train_motifs.py
+# @Last modified by:   dileep
+# @Last modified time: 2016-12-06T04:57:26-05:00
+
+
+
 """Script to train a motif model from chip-seq data"""
 
 from subprocess import call
@@ -54,9 +62,9 @@ if __name__ == '__main__':
     ans = input('Do you want to clean the results directory? (Y/N)\n')
     if ans == 'Y':
         clean_up(paths.out_path)
-    n_range = range(5, 100, 20)
+    n_range = range(10, 100, 10)
     fitness = [0.0 for _ in n_range]
-    motif_out_dir = path.out_path + 'motif_training/'
+    motif_out_dir = paths.out_path + 'motif_training/'
     for ind, n in enumerate(n_range):
         out_dir = motif_out_dir + str(n) + '/'
         if not os.path.exists(out_dir):
@@ -68,5 +76,9 @@ if __name__ == '__main__':
             print('n={0:d}, fitness=None'.format(n))
     plt.plot(n_range, fitness)
     plt.show()
-    best_n = n[fitness.index(max(fitness))]
+    fitness = [fit for fit in fitness if fit is not None]
+    best_n = n_range[fitness.index(max(fitness))]
+    fname = motif_out_dir + 'best_n.txt'
+    with open(fname, 'w') as fid:
+        fid.write(str(best_n))
     make_dataset(best_n, motif_out_dir)
