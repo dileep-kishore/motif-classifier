@@ -3,7 +3,7 @@
 # @Date:   2016-12-04T16:35:17-05:00
 # @Filename: extract_features.py
 # @Last modified by:   dileep
-# @Last modified time: 2016-12-06T13:31:35-05:00
+# @Last modified time: 2016-12-06T15:49:17-05:00
 
 """Script to extract features for classification"""
 
@@ -36,15 +36,15 @@ def main(feature_data_dir, out_dir, labelled_data):
     tf_dist = get_df_distances_to_other_tfs(labelled_data, feature_data_dir)
     # Topologies of binding sites
     tf_topologies = get_df_topologies_of_bindingsites(labelled_data, feature_data_dir)
-    for col in tf_topologies.columns:
-        if 'mgw' in col:
-            if 'mgw_tops' in locals():
-                mgw_tops = pd.concat([mgw_tops, tf_topologies[col]], axis=1)
-            else:
-                mgw_tops = tf_topologies[col]
-    final_dataframe = pd.concat([intergene_data, base_comp, tf_dist, mgw_tops], axis=1)
+    # for col in tf_topologies.columns:
+    #     if 'mgw' in col:
+    #         if 'mgw_tops' in locals():
+    #             mgw_tops = pd.concat([mgw_tops, tf_topologies[col]], axis=1)
+    #         else:
+    #             mgw_tops = tf_topologies[col]
+    # final_dataframe = pd.concat([intergene_data, base_comp, tf_dist, mgw_tops], axis=1)
     # Joining all the data_frames
-    final_dataframe = pd.concat([intergene_data, motif_data, base_comp, tf_dist], axis=1)
+    final_dataframe = pd.concat([intergene_data, motif_data, base_comp, tf_dist, tf_topologies], axis=1)
     op_file = out_dir + 'final_dataframe.csv'
     final_dataframe.to_csv(op_file, index=False)
     return intergene_data, base_comp, tf_topologies
