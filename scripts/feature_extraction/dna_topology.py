@@ -61,8 +61,17 @@ def get_df_topologies_of_bindingsites(labelled_data, feature_path):
     df_prot = positions_df.apply(f_prot, axis=1)
     df_roll = positions_df.apply(f_roll, axis=1)
     
+    # Calculations of the feature bDNA
+    # Tries to summurize in just one feature "how different" the section of DNA
+    # is compared to an standard b-DNA
+    length = df_mgw.shape[1]
+    bdna_series = df_mgw.sum(axis=1)
+    expected_sum = length * 360 / 10.5
+    bdna_series = bdna_series - expected_sum
+    
     # We concatenate everything
     res = pd.concat([df_mgw, df_helt, df_prot, df_roll], axis=1)
+    res['bDNA'] = bdna_series
     return res
     
 # Test data frame that simualtes one with START and END positions of predicted Binding sites
