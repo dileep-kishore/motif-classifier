@@ -103,7 +103,6 @@ def run_classifier(feature_path, labelled_path):
     max_features = int(math.sqrt(feature_df.shape[1]))
     model = RandomForestClassifier(n_estimators=num_trees, max_features=max_features)
     dummy_model = DummyClassifier(constant=None, random_state=0, strategy='most_frequent')
-<<<<<<< HEAD
     scores = cross_val_score(model, feature_df , labels_df, cv=ShuffleSplit(n_splits=3, train_size=0.7, random_state=0))
     # scores = cross_val_score(model, feature_df , labels_df, cv=10, verbose=1)
     dummy_scores = cross_val_score(dummy_model, feature_df, labels_df, cv=ShuffleSplit(n_splits=3, train_size=0.7, random_state=0))
@@ -115,8 +114,7 @@ def run_classifier(feature_path, labelled_path):
     # print(model.predict(feature_df[:100,:]))
     print('randomforest',model.score(feature_df[400:,:], labels_df[400:]))
     print('dummy', dummy_model.score(feature_df[400:,:], labels_df[400:]))
-=======
->>>>>>> f05746cd2d0bc30be3396fbfad1ee86b4788b4b9
+
     # return scores, model
     
     # MANU ADDED THIS
@@ -125,8 +123,6 @@ def run_classifier(feature_path, labelled_path):
     
     return None, None
 
-<<<<<<< HEAD
-=======
 def run_once(feature_path,labelled_path,features_to_use = None):
 #    features_to_use = ['intergenetic', 'compA_d', 'compT_d', 'compG_d', 'compC_d', 'compA_u', 'compT_u', 'compG_u', 'compC_u', 'tfs_D_fw', 'tfs_D_rv', 'tfs_U_fw', 'tfs_U_fw.1']    
 #    features_to_use = ['tfs_D_fw', 'tfs_D_rv', 'tfs_U_fw', 'tfs_U_fw.1']
@@ -222,4 +218,3 @@ def run_cross_validation(feature_path, labelled_path, features_to_use = None):
     # We return a summury of the MCC scores
     print("\n ## Running CROSS validation ##")
     return summurize_cross_score(forest_scores)
->>>>>>> f05746cd2d0bc30be3396fbfad1ee86b4788b4b9
