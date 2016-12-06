@@ -12,7 +12,7 @@ from sklearn.model_selection import cross_val_score
 #from sklearn.model_selection import cross_val_predict
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.dummy import DummyClassifier
-#from sklearn.model_selection import ShuffleSplit
+from sklearn.model_selection import ShuffleSplit
 from sklearn.model_selection import KFold
 import math
 import numpy as np
@@ -114,20 +114,18 @@ def run_classifier(feature_path, labelled_path):
     # print(model.predict(feature_df[:100,:]))
     print('randomforest',model.score(feature_df[400:,:], labels_df[400:]))
     print('dummy', dummy_model.score(feature_df[400:,:], labels_df[400:]))
-
     # return scores, model
     
     # MANU ADDED THIS
-    run_once(feature_path, labelled_path, features_to_use=['tfs_D_fw', 'tfs_D_rv', 'tfs_U_fw', 'tfs_U_fw.1'])
-    print(run_cross_validation(feature_path, labelled_path, features_to_use=['tfs_D_fw', 'tfs_D_rv', 'tfs_U_fw', 'tfs_U_fw.1']))
+    run_once(feature_path, labelled_path)
+    print(run_cross_validation(feature_path, labelled_path))
     
     return None, None
 
 def run_once(feature_path,labelled_path,features_to_use = None):
-#    features_to_use = ['intergenetic', 'compA_d', 'compT_d', 'compG_d', 'compC_d', 'compA_u', 'compT_u', 'compG_u', 'compC_u', 'tfs_D_fw', 'tfs_D_rv', 'tfs_U_fw', 'tfs_U_fw.1']    
-#    features_to_use = ['tfs_D_fw', 'tfs_D_rv', 'tfs_U_fw', 'tfs_U_fw.1']
+    features_to_use = ['intergenetic', 'motif_scores', 'compA_d', 'compT_d', 'compG_d', 'compC_d', 'compA_u', 'compT_u', 'compG_u', 'compC_u', 'tfs_D_fw', 'tfs_D_rv', 'tfs_U_fw', 'tfs_U_fw.1']
+    #features_to_use = ['tfs_D_fw', 'tfs_D_rv', 'tfs_U_fw', 'tfs_U_fw.1']
     features, labels, headers = prepare_data_for_classifier(feature_path,labelled_path, randomize = True, only_columns=features_to_use)
-
     # We manually split the randomized dataset into Training and Testing sets
     train_features = features[:500,:]
     train_labels = labels[:500]
@@ -192,7 +190,6 @@ def forest_feature_importance(features_array, features_names, the_trained_forest
         print("%d. feature %s (%f)" % (f + 1, features_names[indices[f]], importances[indices[f]]))
 
     features_sorted_by_importance = [ features_names[i] for i in indices]
-        
     # Plot the feature importances of the forest
     if plot:
         plt.figure()
@@ -201,7 +198,7 @@ def forest_feature_importance(features_array, features_names, the_trained_forest
                color="r", yerr=std[indices], align="center")
         plt.xticks(range(features_array.shape[1]), tuple(features_sorted_by_importance))
         plt.xlim([-1, features_array.shape[1]])
-        plt.show()
+        #plt.show()
 
 def summurize_cross_score(scores_array):
     best = scores_array.max()
@@ -217,4 +214,5 @@ def run_cross_validation(feature_path, labelled_path, features_to_use = None):
     forest_scores , dummy_scores = cross_validation(features_array, labels_array)
     # We return a summury of the MCC scores
     print("\n ## Running CROSS validation ##")
+    print(forest_scores)
     return summurize_cross_score(forest_scores)
