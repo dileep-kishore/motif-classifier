@@ -2,9 +2,7 @@
 # @Date:   2016-12-04T12:13:51-05:00
 # @Filename: train_motifs.py
 # @Last modified by:   dileep
-# @Last modified time: 2016-12-06T23:56:11-05:00
-
-
+# @Last modified time: December-7th-2016 2:07:57
 
 """Script to train a motif model from chip-seq data"""
 
@@ -19,6 +17,7 @@ from motif_training.motif_identifier import motif_identifier
 from motif_training.make_dataset import make_dataset
 import paths
 import matplotlib.pyplot as plt
+import seaborn
 
 def clean_up(out_path):
     results_dir = out_path + 'motif_training/'
@@ -76,8 +75,14 @@ if __name__ == '__main__':
         except TypeError:
             fitness[ind] = None
             print('n={0:d}, fitness=None'.format(n))
+    fig = plt.figure()
     plt.plot(n_range, fitness)
     plt.show()
+    fig.suptitle('Fitness Function')
+    plt.xlabel('No. of chip-seq data considered for motif model')
+    plt.ylabel('Fitness')
+    fit_plot = out_dir + 'fitness_plt.jpg'
+    fig.savefig(fit_plot)
     n_range = [n for i, n in enumerate(n_range) if fitness[i] is not None]
     fitness = [fit for fit in fitness if fit is not None]
     best_n = n_range[fitness.index(max(fitness))]
