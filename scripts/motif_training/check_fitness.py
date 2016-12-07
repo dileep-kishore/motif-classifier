@@ -2,11 +2,12 @@
 # @Date:   2016-12-03T02:13:20-05:00
 # @Filename: check_fitness.py
 # @Last modified by:   dileep
-# @Last modified time: 2016-12-06T14:11:06-05:00
+# @Last modified time: 2016-12-06T22:14:14-05:00
 """Script to check the fitness/performance of a given motif"""
 
 import pandas as pd
 import numpy as np
+from Bio import motifs
 
 def chip_fitness(chip_fimo, chip_file):
     """Calculate the fitness of the chip binding site predictions"""
@@ -14,16 +15,16 @@ def chip_fitness(chip_fimo, chip_file):
     genes = list(chip_data['Symbol'])
     coverage = list(chip_data['Coverage'])
     hist_bins, _ = np.histogram(coverage, bins=3)
-    hist_bins = list(reversed(hist_bins[]))
-    weigths = []
+    hist_bins = list(reversed(hist_bins))
+    weights = []
     for ind, hist_bin in enumerate(hist_bins):
-        weights += [5*(2-i)+1 for _ in range(hist_bin)]
-    weights = np.array(weigths)
+        weights += [5*(2-ind)+1 for _ in range(hist_bin)]
+    weights = np.array(weights)
     norm_weigths = (weights-np.min(weights)) / (np.max(weights)-np.min(weights))
     chip_dict = dict(zip(genes, norm_weigths))
     fimo_data = pd.read_table(chip_fimo)
     num_matches = len(fimo_data)
-    score = list(fimo_data['score'])
+    scores = list(fimo_data['score'])
     seq_name = list(fimo_data['sequence name'])
     fimo_dict = dict(zip(seq_name, scores))
     tot_score = 0
@@ -37,7 +38,34 @@ def genome_fitness(genome_fimo):
     fitness = len(fimo_data)
     return fitness
 
-def check_fitness(chip_fimo, genome_fimo, chip_data):
+def get_chipseq_ranges(chip_fimo, chip_all, motif_file):
+    chip_all_data = pd.read_csv(chip_all)
+    chip_fimo_data = pd.read_table(chip_fimo)
+    motif_id = set(chip_fimo_data['#pattern name']).pop()
+    with open(motif_file, 'r') as fid:
+        motif_record = motifs.parse(fid, 'MEME')
+    mot_len = int(motif_record[motif_id-1].length)
+    mot_range = []
+    for pos in list(chip_all_data['Position']):
+        mot_range.append((pos-mot_len-10, pos+mot_len+10))
+    return mot_range
+
+def label_genome_data(genome_fimo, motif_range):
+    genome_fimo_data = pd.read_table(genome_fimo)
+    mot_start = list(genome_fimo_data["start"])
+    mot_stop = list(genome_fimo_data["stop"])
+    label = ['' for _ in range(len(mot_stop))]
+    for i in range(len(mot_start)):
+        if any(start <= mot_start[i] <= stop for (start, stop) in motif_range):
+            label[i] = 'true'
+            continue
+        if any(start <= mot_stop[i] <= stop for (start, stop) in motif_range):
+            label[i] = 'true'
+            continue
+        label[i] = 'false'
+    return label
+
+def check_fitness(chip_fimo, genome_fimo, chip_data, motif_file):
     """Function to calculate fitness of a motif"""
     #NOTE: These parameters need to be optimized
     a = 0.7
@@ -46,10 +74,14 @@ def check_fitness(chip_fimo, genome_fimo, chip_data):
     genome_fimo = genome_fimo + '/fimo.txt'
     chip_matches, chip_score = chip_fitness(chip_fimo, chip_data)
     genome_matches = genome_fitness(genome_fimo)
-    #TODO: Make this a weighted average wrt coverage
-    norm_chip = chip_score/chip_matches
+    #CHANGED: This is now a weighted average wrt coverage
+    # norm_chip = chip_score/chip_matches
+    norm_chip = chip_score
     #TODO: Only subtract intersection of genome and chip matches
-    norm_match = (genome_matches-chip_matches)/chip_matches
+    motif_range = get_chipseq_ranges(chip_fimo, chip_data, motif_file)
+    labels = label_genome_data(genome_fimo, motif_range)
+    print(labels[0])
+    norm_match = sum([d for d in labels if d == False])
     a = 1
     b = norm_chip
     return a*norm_chip - b*norm_match

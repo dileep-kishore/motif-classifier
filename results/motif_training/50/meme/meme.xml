@@ -240,7 +240,7 @@
 </letter_frequencies>
 </training_set>
 <model>
-<command_line>meme ../results/motif_training/50/chip_fasta.fa -oc ../results/motif_training/50/meme -dna -mod zoops -nostatus -revcomp -evt 0.001 -nmotifs 5 </command_line>
+<command_line>meme ../results/motif_training/50/chip_fasta.fa -oc ../results/motif_training/50/meme -dna -mod zoops -nostatus -revcomp -nmotifs 5 -evt 0.001 </command_line>
 <host>dileep-i3</host>
 <type>zoops</type>
 <nmotifs>5</nmotifs>
@@ -280,7 +280,7 @@
 </background_frequencies>
 </model>
 <motifs>
-<motif id="motif_1" name="1" width="21" sites="50" ic="15.5" re="13.8" llr="479" e_value="3.2e-031" bayes_threshold="7.97619" elapsed_time="12.203332">
+<motif id="motif_1" name="1" width="21" sites="50" ic="15.5" re="13.8" llr="479" e_value="3.2e-031" bayes_threshold="7.97619" elapsed_time="16.273332">
 <scores>
 <alphabet_matrix>
 <alphabet_array>
@@ -1897,7 +1897,7 @@
 </contributing_site>
 </contributing_sites>
 </motif>
-<motif id="motif_2" name="2" width="49" sites="6" ic="54.3" re="54.6" llr="227" e_value="1.4e-007" bayes_threshold="9.08177" elapsed_time="22.569998">
+<motif id="motif_2" name="2" width="49" sites="6" ic="54.3" re="54.6" llr="227" e_value="1.4e-007" bayes_threshold="9.08177" elapsed_time="28.633330">
 <scores>
 <alphabet_matrix>
 <alphabet_array>
@@ -2830,7 +2830,7 @@ CAAAA[TC]C[CG][AG]G[GT][CG][AT]AAA[CG]C[ACT][GT][CG][TA][CT]T[GC][AG][CA][CG]TC[
 </contributing_site>
 </contributing_sites>
 </motif>
-<motif id="motif_3" name="3" width="49" sites="4" ic="72.0" re="73.3" llr="203" e_value="4.6e-007" bayes_threshold="7.53352" elapsed_time="32.689997">
+<motif id="motif_3" name="3" width="49" sites="4" ic="72.0" re="73.3" llr="203" e_value="4.6e-007" bayes_threshold="7.53352" elapsed_time="39.049996">
 <scores>
 <alphabet_matrix>
 <alphabet_array>

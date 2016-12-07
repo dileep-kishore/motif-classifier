@@ -85,7 +85,7 @@ COMMAND LINE SUMMARY
 This information can also be useful in the event you wish to report a
 problem with the MEME software.
 
-command: meme ../results/motif_training/90/chip_fasta.fa -oc ../results/motif_training/90/meme -dna -mod zoops -nostatus -revcomp -evt 0.001 -nmotifs 5 
+command: meme ../results/motif_training/90/chip_fasta.fa -oc ../results/motif_training/90/meme -dna -mod zoops -nostatus -revcomp -nmotifs 5 -evt 0.001 
 
 model:  mod=         zoops    nmotifs=         5    evt=         0.001
 object function=  E-value of product of p-values
@@ -485,7 +485,7 @@ letter-probability matrix: alength= 4 w= 20 nsites= 89 E= 2.0e-053
 
 
 
-Time 36.75 secs.
+Time 38.47 secs.
 
 ********************************************************************************
 
@@ -662,7 +662,7 @@ A[TG][CG][AC][AC][ACG][AT]G[TC]G[ACG][AG][ACG]T[ACG][AC][AC][GT][ACT][AG][ACG][A
 
 
 
-Time 67.38 secs.
+Time 70.16 secs.
 
 ********************************************************************************
 
@@ -833,7 +833,7 @@ AAT[CT]T[AC][CT][GT]CA[CG]TT[GT]CC[CG][AC][AT][AG]ATT[CT]GG[GT][CG][CG]CA[AG][AT
 
 
 
-Time 97.66 secs.
+Time 100.47 secs.
 
 ********************************************************************************
 
@@ -1010,7 +1010,7 @@ letter-probability matrix: alength= 4 w= 41 nsites= 6 E= 4.9e-006
 
 
 
-Time 128.00 secs.
+Time 131.01 secs.
 
 ********************************************************************************
 
@@ -1199,7 +1199,7 @@ TGCGT[AG]T[AC]T[GT][AC]A[CG][CG]A[AG]A[CG][AT][GT]C[AT]AT[AT][CG]TG[GT][CG]ATT[A
 
 
 
-Time 157.69 secs.
+Time 161.47 secs.
 
 ********************************************************************************
 

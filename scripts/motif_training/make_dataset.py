@@ -1,3 +1,11 @@
+# @Author: Dileep Kishore <dileep>
+# @Date:   2016-12-03T03:28:55-05:00
+# @Filename: make_dataset.py
+# @Last modified by:   dileep
+# @Last modified time: 2016-12-06T22:06:03-05:00
+
+
+
 #!/usr/bin/env python3
 """Make the dataset of tf binding sites using fitness data"""
 
@@ -10,7 +18,7 @@ def get_chipseq_ranges(chip_fimo, chip_all, motif_file):
     motif_id = set(chip_fimo_data['#pattern name']).pop()
     with open(motif_file, 'r') as fid:
         motif_record = motifs.parse(fid, 'MEME')
-    mot_len = int(motif_record[motif_id].length)
+    mot_len = int(motif_record[motif_id-1].length)
     mot_range = []
     for pos in list(chip_all_data['Position']):
         mot_range.append((pos-mot_len-10, pos+mot_len+10))

@@ -2,7 +2,7 @@
 # @Date:   2016-12-04T12:13:51-05:00
 # @Filename: train_motifs.py
 # @Last modified by:   dileep
-# @Last modified time: 2016-12-06T04:57:26-05:00
+# @Last modified time: 2016-12-06T18:50:29-05:00
 
 
 
@@ -52,7 +52,7 @@ def main(TF, n, seq_len, out_dir):
     # Check fitness
     if len(os.listdir(out_dir+'fimo/')) == 0:
         return None
-    fit_score = check_fitness(chip_fimo=fimo_op_folder2, genome_fimo=fimo_op_folder1, chip_data=chip_outfile_all)
+    fit_score = check_fitness(chip_fimo=fimo_op_folder2, genome_fimo=fimo_op_folder1, chip_data=chip_outfile_all, motif_file=motif_file)
     return fit_score
 
 if __name__ == '__main__':

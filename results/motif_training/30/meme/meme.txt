@@ -55,7 +55,7 @@ COMMAND LINE SUMMARY
 This information can also be useful in the event you wish to report a
 problem with the MEME software.
 
-command: meme ../results/motif_training/30/chip_fasta.fa -oc ../results/motif_training/30/meme -dna -mod zoops -nostatus -revcomp -evt 0.001 -nmotifs 5 
+command: meme ../results/motif_training/30/chip_fasta.fa -oc ../results/motif_training/30/meme -dna -mod zoops -nostatus -revcomp -nmotifs 5 -evt 0.001 
 
 model:  mod=         zoops    nmotifs=         5    evt=         0.001
 object function=  E-value of product of p-values
@@ -268,7 +268,7 @@ letter-probability matrix: alength= 4 w= 21 nsites= 26 E= 9.9e-017
 
 
 
-Time  4.25 secs.
+Time  6.46 secs.
 
 ********************************************************************************
 

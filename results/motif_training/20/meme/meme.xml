@@ -210,7 +210,7 @@
 </letter_frequencies>
 </training_set>
 <model>
-<command_line>meme ../results/motif_training/20/chip_fasta.fa -oc ../results/motif_training/20/meme -dna -mod zoops -nostatus -revcomp -evt 0.001 -nmotifs 5 </command_line>
+<command_line>meme ../results/motif_training/20/chip_fasta.fa -oc ../results/motif_training/20/meme -dna -mod zoops -nostatus -revcomp -nmotifs 5 -evt 0.001 </command_line>
 <host>dileep-i3</host>
 <type>zoops</type>
 <nmotifs>5</nmotifs>
@@ -250,7 +250,7 @@
 </background_frequencies>
 </model>
 <motifs>
-<motif id="motif_1" name="1" width="19" sites="20" ic="17.8" re="16.1" llr="224" e_value="5.2e-010" bayes_threshold="8.44708" elapsed_time="2.223333">
+<motif id="motif_1" name="1" width="19" sites="20" ic="17.8" re="16.1" llr="224" e_value="5.2e-010" bayes_threshold="8.44708" elapsed_time="2.786667">
 <scores>
 <alphabet_matrix>
 <alphabet_array>
