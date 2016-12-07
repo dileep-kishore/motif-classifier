@@ -260,7 +260,7 @@
 </background_frequencies>
 </model>
 <motifs>
-<motif id="motif_1" name="1" width="21" sites="26" ic="18.1" re="16.5" llr="298" e_value="9.9e-017" bayes_threshold="8.85959" elapsed_time="6.463333">
+<motif id="motif_1" name="1" width="21" sites="26" ic="18.1" re="16.5" llr="298" e_value="9.9e-017" bayes_threshold="8.85959" elapsed_time="4.620000">
 <scores>
 <alphabet_matrix>
 <alphabet_array>

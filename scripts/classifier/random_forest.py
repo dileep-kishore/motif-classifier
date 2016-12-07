@@ -123,7 +123,7 @@ def run_classifier(feature_path, labelled_path):
     return None, None
 
 def run_once(feature_path,labelled_path,features_to_use = None):
-    features_to_use = ['intergenetic', 'motif_scores', 'compA_d', 'compT_d', 'compG_d', 'compC_d', 'compA_u', 'compT_u', 'compG_u', 'compC_u', 'tfs_D_fw', 'tfs_D_rv', 'tfs_U_fw', 'tfs_U_fw.1']
+    features_to_use = ['motif_scores', 'compA_d', 'compT_d', 'compG_d', 'compC_d', 'compA_u', 'compT_u', 'compG_u', 'compC_u', 'tfs_D_fw', 'tfs_D_rv', 'tfs_U_fw', 'tfs_U_fw.1']
     #features_to_use = ['tfs_D_fw', 'tfs_D_rv', 'tfs_U_fw', 'tfs_U_fw.1']
     features, labels, headers = prepare_data_for_classifier(feature_path,labelled_path, randomize = True, only_columns=features_to_use)
     # We manually split the randomized dataset into Training and Testing sets

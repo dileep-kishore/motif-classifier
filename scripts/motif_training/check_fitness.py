@@ -2,7 +2,7 @@
 # @Date:   2016-12-03T02:13:20-05:00
 # @Filename: check_fitness.py
 # @Last modified by:   dileep
-# @Last modified time: 2016-12-06T22:14:14-05:00
+# @Last modified time: 2016-12-07T00:31:14-05:00
 """Script to check the fitness/performance of a given motif"""
 
 import pandas as pd
@@ -20,7 +20,7 @@ def chip_fitness(chip_fimo, chip_file):
     for ind, hist_bin in enumerate(hist_bins):
         weights += [5*(2-ind)+1 for _ in range(hist_bin)]
     weights = np.array(weights)
-    norm_weigths = (weights-np.min(weights)) / (np.max(weights)-np.min(weights))
+    norm_weigths = (weights) / (np.max(weights))
     chip_dict = dict(zip(genes, norm_weigths))
     fimo_data = pd.read_table(chip_fimo)
     num_matches = len(fimo_data)
@@ -57,19 +57,19 @@ def label_genome_data(genome_fimo, motif_range):
     label = ['' for _ in range(len(mot_stop))]
     for i in range(len(mot_start)):
         if any(start <= mot_start[i] <= stop for (start, stop) in motif_range):
-            label[i] = 'true'
+            label[i] = 1
             continue
         if any(start <= mot_stop[i] <= stop for (start, stop) in motif_range):
-            label[i] = 'true'
+            label[i] = 1
             continue
-        label[i] = 'false'
+        label[i] = 0
     return label
 
 def check_fitness(chip_fimo, genome_fimo, chip_data, motif_file):
     """Function to calculate fitness of a motif"""
     #NOTE: These parameters need to be optimized
-    a = 0.7
-    b = 0.3
+    a = 3
+    b = 1
     chip_fimo = chip_fimo + '/fimo.txt'
     genome_fimo = genome_fimo + '/fimo.txt'
     chip_matches, chip_score = chip_fitness(chip_fimo, chip_data)
@@ -80,8 +80,6 @@ def check_fitness(chip_fimo, genome_fimo, chip_data, motif_file):
     #TODO: Only subtract intersection of genome and chip matches
     motif_range = get_chipseq_ranges(chip_fimo, chip_data, motif_file)
     labels = label_genome_data(genome_fimo, motif_range)
-    print(labels[0])
-    norm_match = sum([d for d in labels if d == False])
-    a = 1
-    b = norm_chip
+    norm_match = sum([1 for d in labels if d == 0])
+    print('normchip={0:.3f}, normmatch={1:.3f}'.format(norm_chip, norm_match))
     return a*norm_chip - b*norm_match

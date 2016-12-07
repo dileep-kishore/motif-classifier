@@ -350,7 +350,7 @@ letter-probability matrix: alength= 4 w= 21 nsites= 50 E= 3.2e-031
 
 
 
-Time 16.27 secs.
+Time 11.08 secs.
 
 ********************************************************************************
 
@@ -543,7 +543,7 @@ CAAAA[TC]C[CG][AG]G[GT][CG][AT]AAA[CG]C[ACT][GT][CG][TA][CT]T[GC][AG][CA][CG]TC[
 
 
 
-Time 28.63 secs.
+Time 20.44 secs.
 
 ********************************************************************************
 
@@ -730,7 +730,7 @@ AT[CG]GGT[GT][CG][AG]TGT[AC][CT]G[AC][AT][GT]G[AC]G[AC][CG][CT][AG][AC][AT][AT]T
 
 
 
-Time 39.05 secs.
+Time 28.69 secs.
 
 ********************************************************************************
 

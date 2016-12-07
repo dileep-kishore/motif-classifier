@@ -2,7 +2,7 @@
 # @Date:   2016-12-04T12:13:51-05:00
 # @Filename: train_motifs.py
 # @Last modified by:   dileep
-# @Last modified time: 2016-12-06T18:50:29-05:00
+# @Last modified time: 2016-12-06T23:56:11-05:00
 
 
 
@@ -71,13 +71,17 @@ if __name__ == '__main__':
             call('mkdir -p ' + out_dir, shell=True)
         fitness[ind] = main(tf, n, seq_len, out_dir)
         try:
+            fitness[ind] = fitness[ind] / n
             print('n={0:d}, fitness={1:.3f}'.format(n, fitness[ind]))
         except TypeError:
+            fitness[ind] = None
             print('n={0:d}, fitness=None'.format(n))
     plt.plot(n_range, fitness)
     plt.show()
+    n_range = [n for i, n in enumerate(n_range) if fitness[i] is not None]
     fitness = [fit for fit in fitness if fit is not None]
     best_n = n_range[fitness.index(max(fitness))]
+    print('best_n:', best_n)
     fname = motif_out_dir + 'best_n.txt'
     with open(fname, 'w') as fid:
         fid.write(str(best_n))

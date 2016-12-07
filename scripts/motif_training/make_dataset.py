@@ -2,7 +2,7 @@
 # @Date:   2016-12-03T03:28:55-05:00
 # @Filename: make_dataset.py
 # @Last modified by:   dileep
-# @Last modified time: 2016-12-06T22:06:03-05:00
+# @Last modified time: 2016-12-07T00:31:51-05:00
 
 
 
@@ -31,12 +31,12 @@ def label_genome_data(genome_fimo, motif_range):
     label = ['' for _ in range(len(mot_stop))]
     for i in range(len(mot_start)):
         if any(start <= mot_start[i] <= stop for (start, stop) in motif_range):
-            label[i] = 'true'
+            label[i] = 1
             continue
         if any(start <= mot_stop[i] <= stop for (start, stop) in motif_range):
-            label[i] = 'true'
+            label[i] = 1
             continue
-        label[i] = 'false'
+        label[i] = 0
     return label
 
 def make_dataframe(results_dir, genome_fimo, labels):

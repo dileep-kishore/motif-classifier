@@ -485,7 +485,7 @@ letter-probability matrix: alength= 4 w= 20 nsites= 89 E= 2.0e-053
 
 
 
-Time 38.47 secs.
+Time 28.12 secs.
 
 ********************************************************************************
 
@@ -662,7 +662,7 @@ A[TG][CG][AC][AC][ACG][AT]G[TC]G[ACG][AG][ACG]T[ACG][AC][AC][GT][ACT][AG][ACG][A
 
 
 
-Time 70.16 secs.
+Time 52.24 secs.
 
 ********************************************************************************
 
@@ -833,7 +833,7 @@ AAT[CT]T[AC][CT][GT]CA[CG]TT[GT]CC[CG][AC][AT][AG]ATT[CT]GG[GT][CG][CG]CA[AG][AT
 
 
 
-Time 100.47 secs.
+Time 75.59 secs.
 
 ********************************************************************************
 
@@ -1010,7 +1010,7 @@ letter-probability matrix: alength= 4 w= 41 nsites= 6 E= 4.9e-006
 
 
 
-Time 131.01 secs.
+Time 98.74 secs.
 
 ********************************************************************************
 
@@ -1199,7 +1199,7 @@ TGCGT[AG]T[AC]T[GT][AC]A[CG][CG]A[AG]A[CG][AT][GT]C[AT]AT[AT][CG]TG[GT][CG]ATT[A
 
 
 
-Time 161.47 secs.
+Time 121.07 secs.
 
 ********************************************************************************
 
