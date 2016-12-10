@@ -268,7 +268,7 @@ letter-probability matrix: alength= 4 w= 21 nsites= 26 E= 9.9e-017
 
 
 
-Time  4.62 secs.
+Time  4.20 secs.
 
 ********************************************************************************
 

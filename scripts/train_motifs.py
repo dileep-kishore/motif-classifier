@@ -61,7 +61,7 @@ if __name__ == '__main__':
     ans = input('Do you want to clean the results directory? (Y/N)\n')
     if ans == 'Y':
         clean_up(paths.out_path)
-    n_range = range(10, 100, 10)
+    n_range = range(10, 90, 10)
     fitness = [0.0 for _ in n_range]
     motif_out_dir = paths.out_path + 'motif_training/'
     for ind, n in enumerate(n_range):
@@ -77,12 +77,12 @@ if __name__ == '__main__':
             print('n={0:d}, fitness=None'.format(n))
     fig = plt.figure()
     plt.plot(n_range, fitness)
-    plt.show()
-    fig.suptitle('Fitness Function')
-    plt.xlabel('No. of chip-seq data considered for motif model')
-    plt.ylabel('Fitness')
-    fit_plot = out_dir + 'fitness_plt.jpg'
+    fig.suptitle('Fitness Function', fontsize=20)
+    plt.xlabel('No. of chip-seq data considered for motif model', fontsize=14)
+    plt.ylabel('Fitness', fontsize=14)
+    fit_plot = out_dir + 'fitness_plt.png'
     fig.savefig(fit_plot)
+    plt.show()
     n_range = [n for i, n in enumerate(n_range) if fitness[i] is not None]
     fitness = [fit for fit in fitness if fit is not None]
     best_n = n_range[fitness.index(max(fitness))]

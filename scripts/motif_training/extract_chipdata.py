@@ -19,7 +19,11 @@ def sort_chipdata(chip_data):
 
 def extract_chipdata(chip_file, n, outfile):
     """Write csv file with sorted chip data and return table"""
-    data = read_chipdata(chip_file)
+    if 'Nac' not in chip_file:
+        sheet_num=0
+    else:
+        sheet_num=1
+    data = read_chipdata(chip_file, sheetnum=sheet_num)
     parsed_data = parse_chipdata(data)
     sorted_data = sort_chipdata(parsed_data)
     # Delete rows with same positions

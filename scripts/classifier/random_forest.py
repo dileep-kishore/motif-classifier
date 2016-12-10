@@ -19,10 +19,12 @@ from sklearn.model_selection import StratifiedKFold
 import math
 import numpy as np
 #from sklearn.metrics import classification_report
+from sklearn.metrics import roc_curve, roc_auc_score
 from sklearn.metrics import matthews_corrcoef
 from sklearn.metrics import make_scorer
 from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
+import seaborn
 
 def prepare_data_for_classifier(feature_path, labelled_path, randomize = False, only_columns = None):
     # We read the files
@@ -75,7 +77,8 @@ def run_classifier(feature_path, labelled_path):
     # MANU ADDED from HERE #
     ########################
     # We set the features we want to use
-    features_to_use = ['var_mgw', 'motif_scores', 'bDNA','compA_d', 'compT_d', 'compG_d', 'compC_d', 'compA_u', 'compT_u', 'compG_u', 'compC_u', 'tfs_D_fw', 'tfs_D_rv', 'tfs_U_fw', 'tfs_U_fw.1', 'intergenetic']
+    # features_to_use = ['var_mgw', 'motif_scores', 'bDNA','compA_d', 'compT_d', 'compG_d', 'compC_d', 'compA_u', 'compT_u', 'compG_u', 'compC_u', 'tfs_D_fw', 'tfs_D_rv', 'tfs_U_fw', 'tfs_U_fw.1', 'intergenetic']
+    features_to_use = ['bDNA', 'var_mgw', 'motif_scores','tfs_D_fw', 'tfs_D_rv', 'tfs_U_fw', 'tfs_U_fw.1']
     seqs = ['seq'+str(i) for i in range(21)]
     features_to_use += seqs
     
@@ -105,7 +108,7 @@ def run_custom_cross(features, labels, headers, single_run = True, verbose=False
     # --> change from here <-- #
     ############################
     # Number of trees in the forest
-    number_of_trees = 100
+    number_of_trees = 300
     # Number of features to train each tree
     max_number_of_features = 'sqrt' # can be 'log'
     # Class Weight
@@ -135,7 +138,7 @@ def run_custom_cross(features, labels, headers, single_run = True, verbose=False
     #  CROSS   customization   #
     # --> change from here <-- #
     ############################  
-    number_of_splits = 10
+    number_of_splits = 5
     ############################
     # -->      to here     <-- #
     ############################     
@@ -172,7 +175,13 @@ def run_custom_cross(features, labels, headers, single_run = True, verbose=False
         predicted_labels_dummy = dummy.predict(test_features)
         # We get the MCC scores (1 is perfect classification, 0 is random, -1 is inverse prediction)
         forest_score = matthews_corrcoef(test_labels, predicted_labels_forest, sample_weight=None)
+        fpr, tpr, _ = roc_curve(test_labels, predicted_labels_forest)
+        # print(roc_auc_score(test_labels, predicted_labels_forest))
+        plt.plot(fpr, tpr)
         dummy_score = matthews_corrcoef(test_labels, predicted_labels_dummy, sample_weight=None)
+        d_fpr, d_tpr, _ = roc_curve(test_labels, predicted_labels_dummy)
+        # plt.plot(fpr, tpr)
+        # plt.show()
     
         # We generate the Confusion Matrix 
         # True negatives is C_{0,0}
@@ -237,8 +246,10 @@ def run_custom_cross(features, labels, headers, single_run = True, verbose=False
         # And we also print confussion matrix for that forest and that dummy
         print('Best Forest matrix:')
         print(forest_cmatrix_list[bestp_index])
+        print(forest_scores_list[bestp_index])
         print('Correspondent Dummy matrix:')
         print(dummy_cmatrix_list[bestp_index])
+        print(dummy_scores_list[bestp_index])
     
     return forest_scores_tuple
     
@@ -254,12 +265,13 @@ def feature_importance_analysis(importances, std, features_array, features_names
     # Plot the feature importances of the forest
     if plot:
         plt.figure()
-        plt.title("Feature importances")
+        plt.title("Feature importances", fontsize=20)
         plt.bar(range(features_array.shape[1]), importances[indices],
                color="r", yerr=std[indices], align="center")
-        plt.xticks(range(features_array.shape[1]), tuple(features_sorted_by_importance))
+        plt.xticks(range(features_array.shape[1]), tuple(features_sorted_by_importance), rotation='vertical', fontsize=12)
+        plt.ylabel('Feature Importance')
         plt.xlim([-1, features_array.shape[1]])
-        #plt.show()
+        # plt.show()
 
 ########################
 # DEPRECATED FUNCTIONS #
